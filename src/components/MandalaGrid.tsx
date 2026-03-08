@@ -181,7 +181,7 @@ export default function MandalaGrid() {
               <div key="main-goal">
                 {renderCell(
                   plan.mainGoal,
-                  { type: 'main' },
+                  { type: 'main', location: 'center' },
                   true
                 )}
               </div>
