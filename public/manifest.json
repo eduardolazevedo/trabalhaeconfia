@@ -1,0 +1,17 @@
+{
+  "name": "Trabalha e Confia",
+  "short_name": "Confia",
+  "description": "Planeje seus objetivos com o método Harada Open Window 64. Trabalhe duro, confie nos resultados.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#f0f4f8",
+  "theme_color": "#3a8fc2",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "/favicon.ico",
+      "sizes": "64x64",
+      "type": "image/x-icon"
+    }
+  ]
+}
