@@ -8,7 +8,7 @@ const ptBr: Translations = {
     settings: 'Ajustes',
   },
   mandala: {
-    title: 'Gráfico Mandala',
+    title: 'Janela Aberta 64',
     subtitle: 'Clique em qualquer célula para editar. Centro = seu sonho.',
     yourDream: '🎯 Seu Sonho',
     yearlyGoal: '⭐ Meta Anual',
