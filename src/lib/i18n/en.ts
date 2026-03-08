@@ -87,6 +87,14 @@ const en: Translations = {
     startButton: 'Create My Plan',
     skipButton: 'Start from scratch',
     step: 'Step',
+    areaObjectives: {
+      family: { objectives: ['Open communication & dialogue', 'Quality family time'], actions: { '0': 'Dinner together without phones', '1': 'Ask "how was your day?" with attention', '2': 'Weekend family outing', '3': 'Read to kids before bed' } },
+      health: { objectives: ['Physical fitness', 'Nutrition & rest'], actions: { '0': 'Walk 30 min a day', '1': 'Drink 2L of water', '2': 'Sleep 7+ hours', '3': 'Cook a healthy meal' } },
+      finance: { objectives: ['Expense control & savings', 'Debt elimination'], actions: { '0': 'Track all daily expenses', '1': 'Review weekly budget', '2': 'No impulse purchases today', '3': 'Save a fixed amount daily' } },
+      career: { objectives: ['Master essential skills', 'Professional growth'], actions: { '0': 'Deep work for 2 hours', '1': 'Read industry news', '2': 'Network with 1 person', '3': 'Update portfolio/resume' } },
+      learning: { objectives: ['Continuous learning', 'Skill development'], actions: { '0': 'Read for 30 minutes', '1': 'Watch an educational video', '2': 'Practice a new skill for 15 min', '3': 'Teach something to someone' } },
+      spiritual: { objectives: ['Inner peace & mindfulness', 'Gratitude practice'], actions: { '0': 'Meditate for 10 minutes', '1': 'Write 3 gratitude items', '2': 'Spend time in nature', '3': 'Perform an act of kindness' } },
+    },
   },
   wizard: {
     introTitle: "Let's complete your plan! 🚀",

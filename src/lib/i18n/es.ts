@@ -87,6 +87,14 @@ const es: Translations = {
     startButton: 'Crear Mi Plan',
     skipButton: 'Empezar de cero',
     step: 'Paso',
+    areaObjectives: {
+      family: { objectives: ['Comunicación y diálogo abierto', 'Tiempo de calidad en familia'], actions: { '0': 'Cenar juntos sin celular', '1': 'Preguntar "¿cómo te fue?" con atención', '2': 'Paseo familiar el fin de semana', '3': 'Leer a los hijos antes de dormir' } },
+      health: { objectives: ['Aptitud física', 'Nutrición y descanso'], actions: { '0': 'Caminar 30 min al día', '1': 'Beber 2L de agua', '2': 'Dormir 7+ horas', '3': 'Cocinar una comida saludable' } },
+      finance: { objectives: ['Control de gastos y ahorro', 'Eliminación de deudas'], actions: { '0': 'Anotar todos los gastos del día', '1': 'Revisar presupuesto semanal', '2': 'Sin compras impulsivas hoy', '3': 'Ahorrar un monto fijo diario' } },
+      career: { objectives: ['Dominar habilidades esenciales', 'Crecimiento profesional'], actions: { '0': 'Trabajo enfocado por 2 horas', '1': 'Leer noticias del sector', '2': 'Hacer networking con 1 persona', '3': 'Actualizar portafolio/currículum' } },
+      learning: { objectives: ['Aprendizaje continuo', 'Desarrollo de habilidades'], actions: { '0': 'Leer por 30 minutos', '1': 'Ver un video educativo', '2': 'Practicar habilidad nueva por 15 min', '3': 'Enseñar algo a alguien' } },
+      spiritual: { objectives: ['Paz interior y mindfulness', 'Práctica de gratitud'], actions: { '0': 'Meditar por 10 minutos', '1': 'Escribir 3 cosas de gratitud', '2': 'Pasar tiempo en la naturaleza', '3': 'Realizar un acto de bondad' } },
+    },
   },
   wizard: {
     introTitle: '¡Vamos a completar tu plan! 🚀',

@@ -87,6 +87,14 @@ const de: Translations = {
     startButton: 'Meinen Plan erstellen',
     skipButton: 'Von Null anfangen',
     step: 'Schritt',
+    areaObjectives: {
+      family: { objectives: ['Offene Kommunikation & Dialog', 'Qualitätszeit mit der Familie'], actions: { '0': 'Zusammen essen ohne Handy', '1': '"Wie war dein Tag?" aufmerksam fragen', '2': 'Familienausflug am Wochenende', '3': 'Den Kindern vor dem Schlafen vorlesen' } },
+      health: { objectives: ['Körperliche Fitness', 'Ernährung & Erholung'], actions: { '0': '30 Min pro Tag spazieren', '1': '2L Wasser trinken', '2': '7+ Stunden schlafen', '3': 'Eine gesunde Mahlzeit kochen' } },
+      finance: { objectives: ['Ausgabenkontrolle & Sparen', 'Schuldenabbau'], actions: { '0': 'Alle Tagesausgaben notieren', '1': 'Wochenbudget überprüfen', '2': 'Keine Impulskäufe heute', '3': 'Einen festen Betrag täglich sparen' } },
+      career: { objectives: ['Wesentliche Fähigkeiten meistern', 'Berufliches Wachstum'], actions: { '0': '2 Stunden fokussiert arbeiten', '1': 'Branchennachrichten lesen', '2': 'Mit 1 Person netzwerken', '3': 'Portfolio/Lebenslauf aktualisieren' } },
+      learning: { objectives: ['Kontinuierliches Lernen', 'Kompetenzentwicklung'], actions: { '0': '30 Minuten lesen', '1': 'Ein Lernvideo ansehen', '2': 'Neue Fähigkeit 15 Min üben', '3': 'Jemandem etwas beibringen' } },
+      spiritual: { objectives: ['Innerer Frieden & Achtsamkeit', 'Dankbarkeitspraxis'], actions: { '0': '10 Minuten meditieren', '1': '3 Dankbarkeitspunkte aufschreiben', '2': 'Zeit in der Natur verbringen', '3': 'Eine gute Tat vollbringen' } },
+    },
   },
   wizard: {
     introTitle: 'Vervollständigen wir deinen Plan! 🚀',

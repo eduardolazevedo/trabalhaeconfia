@@ -87,6 +87,14 @@ const fr: Translations = {
     startButton: 'Créer Mon Plan',
     skipButton: 'Partir de zéro',
     step: 'Étape',
+    areaObjectives: {
+      family: { objectives: ['Communication et dialogue ouvert', 'Temps de qualité en famille'], actions: { '0': 'Dîner ensemble sans téléphone', '1': 'Demander "comment s\'est passée ta journée ?" avec attention', '2': 'Sortie en famille le week-end', '3': 'Lire aux enfants avant de dormir' } },
+      health: { objectives: ['Forme physique', 'Nutrition et repos'], actions: { '0': 'Marcher 30 min par jour', '1': 'Boire 2L d\'eau', '2': 'Dormir 7+ heures', '3': 'Cuisiner un repas sain' } },
+      finance: { objectives: ['Contrôle des dépenses et épargne', 'Élimination des dettes'], actions: { '0': 'Noter toutes les dépenses du jour', '1': 'Revoir le budget hebdomadaire', '2': 'Pas d\'achats impulsifs aujourd\'hui', '3': 'Épargner un montant fixe quotidien' } },
+      career: { objectives: ['Maîtriser les compétences essentielles', 'Croissance professionnelle'], actions: { '0': 'Travail concentré pendant 2 heures', '1': 'Lire les actualités du secteur', '2': 'Réseauter avec 1 personne', '3': 'Mettre à jour le portfolio/CV' } },
+      learning: { objectives: ['Apprentissage continu', 'Développement de compétences'], actions: { '0': 'Lire pendant 30 minutes', '1': 'Regarder une vidéo éducative', '2': 'Pratiquer une nouvelle compétence 15 min', '3': 'Enseigner quelque chose à quelqu\'un' } },
+      spiritual: { objectives: ['Paix intérieure et pleine conscience', 'Pratique de la gratitude'], actions: { '0': 'Méditer pendant 10 minutes', '1': 'Écrire 3 choses de gratitude', '2': 'Passer du temps dans la nature', '3': 'Réaliser un acte de bonté' } },
+    },
   },
   wizard: {
     introTitle: 'Complétons votre plan ! 🚀',
