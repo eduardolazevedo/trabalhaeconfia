@@ -8,7 +8,7 @@ const en: Translations = {
     settings: 'Settings',
   },
   mandala: {
-    title: 'Mandala Chart',
+    title: 'Open Window 64',
     subtitle: 'Click any cell to edit. Center = your dream goal.',
     yourDream: '🎯 Your Dream',
     yearlyGoal: '⭐ Yearly Goal',
