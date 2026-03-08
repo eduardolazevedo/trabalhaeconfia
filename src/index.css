@@ -2,11 +2,52 @@
 @tailwind components;
 @tailwind utilities;
 
-@import url('https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@300;400;500;700&family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&family=Playfair+Display:wght@400;500;600;700;900&family=DM+Sans:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;500;600;700;800&family=Noto+Serif+JP:wght@300;400;500;700&family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&family=Playfair+Display:wght@400;500;600;700;900&family=DM+Sans:wght@300;400;500;600;700&display=swap');
 
 @layer base {
+  /* CONFIA THEME - Trabalha e Confia, Espírito Santo inspired */
+  /* Light pink, light blue, white — calming, trustworthy, warm */
+  :root, [data-theme="confia"] {
+    --background: 210 30% 98%;
+    --foreground: 215 25% 18%;
+    --card: 0 0% 100%;
+    --card-foreground: 215 25% 18%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 215 25% 18%;
+    --primary: 205 65% 52%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 345 35% 95%;
+    --secondary-foreground: 215 25% 22%;
+    --muted: 210 20% 95%;
+    --muted-foreground: 215 12% 50%;
+    --accent: 345 55% 68%;
+    --accent-foreground: 0 0% 100%;
+    --destructive: 0 60% 50%;
+    --destructive-foreground: 0 0% 100%;
+    --border: 210 20% 90%;
+    --input: 210 18% 92%;
+    --ring: 205 65% 52%;
+    --radius: 0.625rem;
+    --font-heading: 'Nunito', sans-serif;
+    --font-body: 'Nunito', sans-serif;
+    --shadow-card: 0 2px 12px -3px hsl(205 65% 52% / 0.08), 0 1px 4px -1px hsl(345 55% 68% / 0.06);
+    --shadow-elevated: 0 12px 32px -8px hsl(205 65% 52% / 0.12), 0 4px 12px -2px hsl(345 55% 68% / 0.08);
+    --gradient-subtle: linear-gradient(135deg, hsl(210 30% 98%), hsl(345 35% 97%));
+    --streak-color: 345 55% 68%;
+    --success: 160 50% 42%;
+    --success-foreground: 0 0% 100%;
+    --sidebar-background: 210 30% 98%;
+    --sidebar-foreground: 215 25% 18%;
+    --sidebar-primary: 205 65% 52%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 345 35% 95%;
+    --sidebar-accent-foreground: 215 25% 22%;
+    --sidebar-border: 210 20% 90%;
+    --sidebar-ring: 205 65% 52%;
+  }
+
   /* ZEN THEME - Japanese minimal, wabi-sabi */
-  :root, [data-theme="zen"] {
+  [data-theme="zen"] {
     --background: 40 20% 97%;
     --foreground: 30 10% 15%;
     --card: 40 25% 95%;
