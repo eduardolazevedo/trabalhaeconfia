@@ -1,11 +1,13 @@
 import { useState, useMemo } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { usePlan } from '@/contexts/PlanContext';
+import { useLanguage } from '@/contexts/LanguageContext';
 import { getDateKey, getStreak, getTodayCompletionRate } from '@/lib/store';
 import { Check, Flame, Target, ChevronDown, ChevronUp } from 'lucide-react';
 
 export default function DailyTracker() {
   const { plan, updatePlan } = usePlan();
+  const { t } = useLanguage();
   const today = getDateKey();
   const completions = plan.completions[today] || {};
   const streak = getStreak(plan);
@@ -41,21 +43,21 @@ export default function DailyTracker() {
   const pct = Math.round(completionRate * 100);
 
   const getMotivationalText = () => {
-    if (pct === 0) return "Let's get started! Every journey begins with one step.";
-    if (pct < 25) return "Good start! Keep the momentum going.";
-    if (pct < 50) return "You're building something great. Stay focused.";
-    if (pct < 75) return "Impressive progress! You're more than halfway there.";
-    if (pct < 100) return "Almost there! Push through to the finish.";
-    return "🎉 Perfect day! You're living your dream.";
+    if (pct === 0) return t.daily.motivational['0'];
+    if (pct < 25) return t.daily.motivational['25'];
+    if (pct < 50) return t.daily.motivational['50'];
+    if (pct < 75) return t.daily.motivational['75'];
+    if (pct < 100) return t.daily.motivational['100'];
+    return t.daily.motivational['done'];
   };
 
   if (filledActions.length === 0) {
     return (
       <div className="flex flex-col items-center justify-center min-h-[60vh] text-center px-4">
         <Target className="w-16 h-16 text-muted-foreground mb-4" />
-        <h2 className="text-xl font-bold mb-2">No habits set yet</h2>
+        <h2 className="text-xl font-bold mb-2">{t.daily.noHabits}</h2>
         <p className="text-muted-foreground max-w-sm">
-          Head to the Mandala Chart to define your goals and daily actions first.
+          {t.daily.noHabitsDesc}
         </p>
       </div>
     );
@@ -65,7 +67,7 @@ export default function DailyTracker() {
     <div className="w-full max-w-2xl mx-auto px-4">
       {/* Stats Header */}
       <div className="mb-8">
-        <h1 className="text-2xl md:text-3xl font-bold mb-4 text-center">Today's Focus</h1>
+        <h1 className="text-2xl md:text-3xl font-bold mb-4 text-center">{t.daily.title}</h1>
 
         <div className="grid grid-cols-3 gap-3 mb-4">
           <motion.div
@@ -77,7 +79,7 @@ export default function DailyTracker() {
               <Flame className="w-5 h-5 text-streak" />
               <span className="text-2xl font-bold text-streak">{streak}</span>
             </div>
-            <span className="text-xs text-muted-foreground">Day Streak</span>
+            <span className="text-xs text-muted-foreground">{t.daily.dayStreak}</span>
           </motion.div>
 
           <motion.div
@@ -87,7 +89,7 @@ export default function DailyTracker() {
             transition={{ delay: 0.05 }}
           >
             <span className="text-2xl font-bold">{completedCount}/{filledActions.length}</span>
-            <div className="text-xs text-muted-foreground">Completed</div>
+            <div className="text-xs text-muted-foreground">{t.daily.completed}</div>
           </motion.div>
 
           <motion.div
@@ -97,7 +99,7 @@ export default function DailyTracker() {
             transition={{ delay: 0.1 }}
           >
             <span className="text-2xl font-bold text-success">{pct}%</span>
-            <div className="text-xs text-muted-foreground">Progress</div>
+            <div className="text-xs text-muted-foreground">{t.daily.progress}</div>
           </motion.div>
         </div>
 
@@ -119,7 +121,7 @@ export default function DailyTracker() {
       <div className="space-y-3">
         {Object.entries(actionsByObjective).map(([objIdxStr, actions]) => {
           const objIdx = parseInt(objIdxStr);
-          const objName = plan.yearlyObjectives[objIdx] || `Objective ${objIdx + 1}`;
+          const objName = plan.yearlyObjectives[objIdx] || `${t.daily.objective} ${objIdx + 1}`;
           const objCompleted = actions.filter(a => completions[a.id]).length;
           const isExpanded = expandedObjective === objIdx;
 

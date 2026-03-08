@@ -1,8 +1,10 @@
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { usePlan } from '@/contexts/PlanContext';
+import { useLanguage } from '@/contexts/LanguageContext';
 import { getActionsForObjective, createEmptyPlan } from '@/lib/store';
-import { getHabitPrompts, getObjectivePrompts, getRandomTip, getRandomQuote, EXAMPLE_PLANS, GOAL_CATEGORIES, type ExamplePlan } from '@/lib/inspiration';
+import { getRandomFromArray } from '@/lib/i18n';
+import type { ExamplePlanTranslation } from '@/lib/i18n/types';
 import { Lightbulb, BookOpen, Sparkles, X, ChevronRight } from 'lucide-react';
 
 const BLOCK_POSITIONS = [
@@ -25,21 +27,28 @@ interface EditingCell {
 
 export default function MandalaGrid() {
   const { plan, updatePlan } = usePlan();
+  const { t } = useLanguage();
   const [editing, setEditing] = useState<EditingCell | null>(null);
   const [editValue, setEditValue] = useState('');
   const [showTemplates, setShowTemplates] = useState(false);
   const [showCategories, setShowCategories] = useState(false);
-  const [tip, setTip] = useState(getRandomTip);
-  const [quote, setQuote] = useState(getRandomQuote);
+  const [tip, setTip] = useState(() => getRandomFromArray(t.tips));
+  const [quote, setQuote] = useState(() => getRandomFromArray(t.quotes));
 
   // Rotate tip every 30s
   useEffect(() => {
     const interval = setInterval(() => {
-      setTip(getRandomTip());
-      setQuote(getRandomQuote());
+      setTip(getRandomFromArray(t.tips));
+      setQuote(getRandomFromArray(t.quotes));
     }, 30000);
     return () => clearInterval(interval);
-  }, []);
+  }, [t]);
+
+  // Update tip/quote when language changes
+  useEffect(() => {
+    setTip(getRandomFromArray(t.tips));
+    setQuote(getRandomFromArray(t.quotes));
+  }, [t]);
 
   const startEdit = (cell: EditingCell, currentValue: string) => {
     setEditing(cell);
@@ -68,7 +77,7 @@ export default function MandalaGrid() {
     setEditing(null);
   };
 
-  const loadTemplate = (template: ExamplePlan) => {
+  const loadTemplate = (template: ExamplePlanTranslation) => {
     updatePlan(prev => {
       const base = createEmptyPlan();
       base.mainGoal = template.mainGoal;
@@ -91,19 +100,28 @@ export default function MandalaGrid() {
   const getSuggestions = (): string[] => {
     if (!editing) return [];
     if (editing.type === 'main') {
-      return [
-        'Become the best version of myself',
-        'Build a thriving career and balanced life',
-        'Achieve peak physical and mental health',
-        'Create lasting positive impact',
-      ];
+      return t.mainGoalSuggestions;
     }
     if (editing.type === 'yearly') {
-      return getObjectivePrompts(plan.mainGoal);
+      // Find matching category based on main goal keywords
+      const lower = plan.mainGoal.toLowerCase();
+      for (const cat of t.categories) {
+        const keywords = cat.name.toLowerCase().split(/[&\s]+/);
+        if (keywords.some(k => k.length > 2 && lower.includes(k))) {
+          return cat.objectiveIdeas;
+        }
+      }
+      return t.categories.slice(0, 4).map(c => c.objectiveIdeas[0]);
     }
     if (editing.type === 'daily' && editing.objectiveIndex !== undefined) {
-      const objText = plan.yearlyObjectives[editing.objectiveIndex];
-      return getHabitPrompts(objText);
+      const objText = plan.yearlyObjectives[editing.objectiveIndex].toLowerCase();
+      for (const cat of t.categories) {
+        const keywords = cat.name.toLowerCase().split(/[&\s]+/);
+        if (keywords.some(k => k.length > 2 && objText.includes(k))) {
+          return cat.habitIdeas.slice(0, 4);
+        }
+      }
+      return t.categories.slice(0, 4).map(c => c.habitIdeas[0]);
     }
     return [];
   };
@@ -152,8 +170,8 @@ export default function MandalaGrid() {
           <span className="text-[9px] md:text-[11px] leading-tight text-center line-clamp-3 px-0.5">
             {content || (
               isCenter
-                ? (cell.type === 'main' ? '🎯 Your Dream' : '⭐ Yearly Goal')
-                : (cell.type === 'yearly' ? '+ Goal' : '+ Habit')
+                ? (cell.type === 'main' ? t.mandala.yourDream : t.mandala.yearlyGoal)
+                : (cell.type === 'yearly' ? t.mandala.addGoal : t.mandala.addHabit)
             )}
           </span>
         )}
@@ -213,8 +231,8 @@ export default function MandalaGrid() {
     <div className="w-full max-w-6xl mx-auto px-2 md:px-4">
       {/* Header with tip */}
       <div className="mb-4 text-center">
-        <h1 className="text-2xl md:text-3xl font-bold mb-1">Mandala Chart</h1>
-        <p className="text-sm text-muted-foreground mb-3">Click any cell to edit. Center = your dream goal.</p>
+        <h1 className="text-2xl md:text-3xl font-bold mb-1">{t.mandala.title}</h1>
+        <p className="text-sm text-muted-foreground mb-3">{t.mandala.subtitle}</p>
 
         {/* Rotating tip */}
         <motion.div
@@ -234,14 +252,14 @@ export default function MandalaGrid() {
           className="flex items-center gap-1.5 px-3 py-1.5 text-xs font-medium bg-card border border-border rounded-full hover:bg-secondary transition-colors"
         >
           <BookOpen className="w-3.5 h-3.5" />
-          Example Plans
+          {t.mandala.examplePlans}
         </button>
         <button
           onClick={() => { setShowCategories(!showCategories); setShowTemplates(false); }}
           className="flex items-center gap-1.5 px-3 py-1.5 text-xs font-medium bg-card border border-border rounded-full hover:bg-secondary transition-colors"
         >
           <Sparkles className="w-3.5 h-3.5" />
-          Goal Ideas
+          {t.mandala.goalIdeas}
         </button>
       </div>
 
@@ -256,31 +274,31 @@ export default function MandalaGrid() {
           >
             <div className="bg-card border border-border rounded-lg p-4">
               <div className="flex items-center justify-between mb-3">
-                <h3 className="font-semibold text-sm">Load an Example Plan</h3>
+                <h3 className="font-semibold text-sm">{t.mandala.loadExample}</h3>
                 <button onClick={() => setShowTemplates(false)} className="text-muted-foreground hover:text-foreground">
                   <X className="w-4 h-4" />
                 </button>
               </div>
-              <p className="text-xs text-muted-foreground mb-3">Choose a template to pre-fill your chart. You can customize everything after loading.</p>
+              <p className="text-xs text-muted-foreground mb-3">{t.mandala.loadExampleDesc}</p>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
-                {EXAMPLE_PLANS.map(t => (
+                {t.examplePlans.map(tp => (
                   <button
-                    key={t.id}
+                    key={tp.id}
                     onClick={() => {
                       if (plan.mainGoal || plan.yearlyObjectives.some(o => o)) {
-                        if (confirm('This will replace your current plan. Continue?')) {
-                          loadTemplate(t);
+                        if (confirm(t.mandala.replaceConfirm)) {
+                          loadTemplate(tp);
                         }
                       } else {
-                        loadTemplate(t);
+                        loadTemplate(tp);
                       }
                     }}
                     className="text-left p-3 rounded-md border border-border hover:border-primary/50 hover:bg-secondary/50 transition-colors"
                   >
-                    <div className="font-medium text-sm">{t.name}</div>
-                    <div className="text-xs text-muted-foreground mt-0.5">{t.description}</div>
+                    <div className="font-medium text-sm">{tp.name}</div>
+                    <div className="text-xs text-muted-foreground mt-0.5">{tp.description}</div>
                     <div className="text-xs text-primary mt-1 flex items-center gap-0.5">
-                      Load template <ChevronRight className="w-3 h-3" />
+                      {t.mandala.loadTemplate} <ChevronRight className="w-3 h-3" />
                     </div>
                   </button>
                 ))}
@@ -301,14 +319,14 @@ export default function MandalaGrid() {
           >
             <div className="bg-card border border-border rounded-lg p-4">
               <div className="flex items-center justify-between mb-3">
-                <h3 className="font-semibold text-sm">Goal Category Ideas</h3>
+                <h3 className="font-semibold text-sm">{t.mandala.goalIdeas}</h3>
                 <button onClick={() => setShowCategories(false)} className="text-muted-foreground hover:text-foreground">
                   <X className="w-4 h-4" />
                 </button>
               </div>
-              <p className="text-xs text-muted-foreground mb-3">Browse categories for inspiration. Click any idea to copy it, then paste into a cell.</p>
+              <p className="text-xs text-muted-foreground mb-3">{t.mandala.browseCategoriesDesc}</p>
               <div className="grid grid-cols-2 sm:grid-cols-4 gap-2">
-                {GOAL_CATEGORIES.map(cat => (
+                {t.categories.map(cat => (
                   <div key={cat.id} className="border border-border rounded-md p-2">
                     <div className="font-medium text-xs mb-1">{cat.emoji} {cat.name}</div>
                     <div className="space-y-0.5">
@@ -317,13 +335,13 @@ export default function MandalaGrid() {
                           key={i}
                           onClick={() => { navigator.clipboard.writeText(idea); }}
                           className="block w-full text-left text-[10px] text-muted-foreground hover:text-foreground hover:bg-secondary/50 rounded px-1 py-0.5 transition-colors"
-                          title="Click to copy"
+                          title={t.mandala.clickToCopy}
                         >
                           {idea}
                         </button>
                       ))}
                       <div className="text-[10px] text-muted-foreground/60 pl-1">
-                        +{cat.habitIdeas.length} habit ideas
+                        +{cat.habitIdeas.length} {t.mandala.habitIdeasCount}
                       </div>
                     </div>
                   </div>
@@ -345,12 +363,12 @@ export default function MandalaGrid() {
           >
             <Lightbulb className="w-4 h-4 text-primary mt-0.5 shrink-0" />
             <div className="flex flex-wrap gap-1.5">
-              <span className="text-xs text-muted-foreground mr-1">Ideas:</span>
+              <span className="text-xs text-muted-foreground mr-1">{t.mandala.ideas}</span>
               {suggestions.map((s, i) => (
                 <button
                   key={i}
                   onMouseDown={e => {
-                    e.preventDefault(); // prevent blur on textarea
+                    e.preventDefault();
                     setEditValue(s);
                   }}
                   className="text-[10px] px-2 py-0.5 rounded-full bg-card border border-border hover:border-primary/50 hover:text-primary transition-colors"
