@@ -18,31 +18,31 @@ export function useOnboarding() {
   return { onboardingDone: done, markOnboardingDone: markDone };
 }
 
-// Area-to-objectives mapping for pre-filling
+// Mapeamento de áreas para objetivos e ações sugeridas (PT-BR)
 const AREA_OBJECTIVES: Record<string, { objectives: string[]; actions: Record<string, string> }> = {
   family: {
-    objectives: ['Open communication', 'Quality family time'],
-    actions: { '0': 'Dinner together without phones', '1': 'Ask "how was your day?" with attention', '2': 'Weekend family outing', '3': 'Read to kids before bed' },
+    objectives: ['Comunicação e diálogo aberto', 'Tempo de qualidade em família'],
+    actions: { '0': 'Jantar juntos sem celular', '1': 'Perguntar "como foi seu dia?" com atenção', '2': 'Passeio em família no fim de semana', '3': 'Ler para os filhos antes de dormir' },
   },
   health: {
-    objectives: ['Physical fitness', 'Nutrition & rest'],
-    actions: { '0': 'Walk 30 min daily', '1': 'Drink 2L water', '2': 'Sleep 7+ hours', '3': 'Cook a healthy meal' },
+    objectives: ['Aptidão física', 'Nutrição e descanso'],
+    actions: { '0': 'Caminhar 30 min por dia', '1': 'Beber 2L de água', '2': 'Dormir 7+ horas', '3': 'Cozinhar uma refeição saudável' },
   },
   finance: {
-    objectives: ['Budget & savings', 'Debt elimination'],
-    actions: { '0': 'Track all expenses today', '1': 'Review budget weekly', '2': 'No impulse purchases', '3': 'Save a fixed amount daily' },
+    objectives: ['Controle de gastos e poupança', 'Eliminação de dívidas'],
+    actions: { '0': 'Anotar todos os gastos do dia', '1': 'Revisar orçamento semanal', '2': 'Sem compras por impulso hoje', '3': 'Poupar um valor fixo diário' },
   },
   career: {
-    objectives: ['Core skills mastery', 'Professional growth'],
-    actions: { '0': 'Deep work for 2 hours', '1': 'Read industry news', '2': 'Network with 1 person', '3': 'Update portfolio/resume' },
+    objectives: ['Dominar habilidades essenciais', 'Crescimento profissional'],
+    actions: { '0': 'Trabalho focado por 2 horas', '1': 'Ler notícias do setor', '2': 'Fazer networking com 1 pessoa', '3': 'Atualizar portfólio/currículo' },
   },
   learning: {
-    objectives: ['Continuous learning', 'Skill development'],
-    actions: { '0': 'Read for 30 minutes', '1': 'Watch an educational video', '2': 'Practice a new skill 15 min', '3': 'Teach someone what you learned' },
+    objectives: ['Aprendizado contínuo', 'Desenvolvimento de habilidades'],
+    actions: { '0': 'Ler por 30 minutos', '1': 'Assistir um vídeo educativo', '2': 'Praticar habilidade nova por 15 min', '3': 'Ensinar algo a alguém' },
   },
   spiritual: {
-    objectives: ['Inner peace & mindfulness', 'Gratitude practice'],
-    actions: { '0': 'Meditate for 10 minutes', '1': 'Write 3 gratitude items', '2': 'Spend time in nature', '3': 'Perform an act of kindness' },
+    objectives: ['Paz interior e mindfulness', 'Prática de gratidão'],
+    actions: { '0': 'Meditar por 10 minutos', '1': 'Escrever 3 itens de gratidão', '2': 'Passar tempo na natureza', '3': 'Realizar um ato de bondade' },
   },
 };
 
