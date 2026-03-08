@@ -1,5 +1,6 @@
 import React, { createContext, useContext, useState, useEffect, useCallback } from 'react';
-import { HaradaPlan, loadPlan, savePlan, applyTheme, Theme } from '@/lib/store';
+import { HaradaPlan, createEmptyPlan, applyTheme, Theme } from '@/lib/store';
+import { useStorage } from '@/lib/storage';
 
 interface PlanContextType {
   plan: HaradaPlan;
@@ -10,15 +11,27 @@ interface PlanContextType {
 const PlanContext = createContext<PlanContextType | null>(null);
 
 export function PlanProvider({ children }: { children: React.ReactNode }) {
-  const [plan, setPlan] = useState<HaradaPlan>(() => loadPlan());
+  const storage = useStorage();
+  const [plan, setPlan] = useState<HaradaPlan>(() => createEmptyPlan());
+  const [loaded, setLoaded] = useState(false);
+
+  // Load plan from storage adapter (async)
+  useEffect(() => {
+    storage.loadPlan().then(saved => {
+      if (saved) setPlan(saved);
+      setLoaded(true);
+    });
+  }, [storage]);
 
   useEffect(() => {
     applyTheme(plan.theme);
   }, [plan.theme]);
 
   useEffect(() => {
-    savePlan(plan);
-  }, [plan]);
+    if (loaded) {
+      storage.savePlan(plan);
+    }
+  }, [plan, loaded, storage]);
 
   const updatePlan = useCallback((updater: (prev: HaradaPlan) => HaradaPlan) => {
     setPlan(prev => updater(prev));

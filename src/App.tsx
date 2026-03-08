@@ -34,6 +34,7 @@ const App = () => (
             <AppNav />
           </BrowserRouter>
         </PlanProvider>
+        </StorageProvider>
       </LanguageProvider>
     </TooltipProvider>
   </QueryClientProvider>
