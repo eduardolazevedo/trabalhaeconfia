@@ -49,6 +49,7 @@ interface EditingCell {
   type: 'main' | 'yearly' | 'daily';
   objectiveIndex?: number;
   actionIndex?: number;
+  location?: 'center' | 'outer';
 }
 
 export default function MandalaGrid() {
@@ -92,7 +93,8 @@ export default function MandalaGrid() {
     const isEditing =
       editing?.type === cell.type &&
       editing?.objectiveIndex === cell.objectiveIndex &&
-      editing?.actionIndex === cell.actionIndex;
+      editing?.actionIndex === cell.actionIndex &&
+      editing?.location === cell.location;
 
     return (
       <motion.div
