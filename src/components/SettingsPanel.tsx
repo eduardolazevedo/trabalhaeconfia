@@ -1,7 +1,7 @@
 import { usePlan } from '@/contexts/PlanContext';
 import { Theme, exportPlan, importPlan } from '@/lib/store';
 import { motion } from 'framer-motion';
-import { Download, Upload, Palette } from 'lucide-react';
+import { Download, Upload, Palette, Shield } from 'lucide-react';
 import { useRef } from 'react';
 import { toast } from 'sonner';
 
