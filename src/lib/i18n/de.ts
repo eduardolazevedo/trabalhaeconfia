@@ -2,13 +2,13 @@ import type { Translations } from './types';
 
 const de: Translations = {
   nav: {
-    mandala: 'Mandala',
+    mandala: 'Offenes Fenster 64',
     daily: 'Täglich',
     howTo: 'Anleitung',
     settings: 'Einstellungen',
   },
   mandala: {
-    title: 'Mandala-Diagramm',
+    title: 'Offenes Fenster 64',
     subtitle: 'Klicke auf eine Zelle zum Bearbeiten. Mitte = dein Traum.',
     yourDream: '🎯 Dein Traum',
     yearlyGoal: '⭐ Jahresziel',
@@ -31,7 +31,7 @@ const de: Translations = {
     completed: 'Erledigt',
     progress: 'Fortschritt',
     noHabits: 'Noch keine Gewohnheiten',
-    noHabitsDesc: 'Gehe zum Mandala-Diagramm, um zuerst deine Ziele und täglichen Aktionen festzulegen.',
+    noHabitsDesc: 'Gehe zum Offenes Fenster 64, um zuerst deine Ziele und täglichen Aktionen festzulegen.',
     objective: 'Ziel',
     motivational: {
       '0': 'Los geht\'s! Jede Reise beginnt mit einem Schritt.',

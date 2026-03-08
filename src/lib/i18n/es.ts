@@ -2,13 +2,13 @@ import type { Translations } from './types';
 
 const es: Translations = {
   nav: {
-    mandala: 'Mandala',
+    mandala: 'Ventana Abierta 64',
     daily: 'Diario',
     howTo: 'Guía',
     settings: 'Ajustes',
   },
   mandala: {
-    title: 'Gráfico Mandala',
+    title: 'Ventana Abierta 64',
     subtitle: 'Haz clic en cualquier celda para editar. Centro = tu sueño.',
     yourDream: '🎯 Tu Sueño',
     yearlyGoal: '⭐ Meta Anual',
@@ -31,7 +31,7 @@ const es: Translations = {
     completed: 'Completados',
     progress: 'Progreso',
     noHabits: 'Aún no hay hábitos',
-    noHabitsDesc: 'Ve al Gráfico Mandala para definir tus metas y acciones diarias primero.',
+    noHabitsDesc: 'Ve a la Ventana Abierta 64 para definir tus metas y acciones diarias primero.',
     objective: 'Objetivo',
     motivational: {
       '0': '¡Empecemos! Todo viaje comienza con un paso.',

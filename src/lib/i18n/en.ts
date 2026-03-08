@@ -2,13 +2,13 @@ import type { Translations } from './types';
 
 const en: Translations = {
   nav: {
-    mandala: 'Mandala',
+    mandala: 'Open Window 64',
     daily: 'Daily',
     howTo: 'How To',
     settings: 'Settings',
   },
   mandala: {
-    title: 'Mandala Chart',
+    title: 'Open Window 64',
     subtitle: 'Click any cell to edit. Center = your dream goal.',
     yourDream: '🎯 Your Dream',
     yearlyGoal: '⭐ Yearly Goal',
@@ -31,7 +31,7 @@ const en: Translations = {
     completed: 'Completed',
     progress: 'Progress',
     noHabits: 'No habits set yet',
-    noHabitsDesc: 'Head to the Mandala Chart to define your goals and daily actions first.',
+    noHabitsDesc: 'Head to the Open Window 64 chart to define your goals and daily actions first.',
     objective: 'Objective',
     motivational: {
       '0': "Let's get started! Every journey begins with one step.",
