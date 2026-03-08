@@ -1,11 +1,17 @@
 import MandalaGrid from '@/components/MandalaGrid';
 import Onboarding, { useOnboarding } from '@/components/Onboarding';
+import PlanWizard, { useWizard } from '@/components/PlanWizard';
 
 const Index = () => {
   const { onboardingDone, markOnboardingDone } = useOnboarding();
+  const { wizardDone, markWizardDone } = useWizard();
 
   if (!onboardingDone) {
     return <Onboarding onComplete={markOnboardingDone} />;
+  }
+
+  if (!wizardDone) {
+    return <PlanWizard onComplete={markWizardDone} />;
   }
 
   return (
