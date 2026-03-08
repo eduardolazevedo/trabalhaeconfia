@@ -2,7 +2,7 @@ import type { Translations } from './types';
 
 const ptBr: Translations = {
   nav: {
-    mandala: 'Mandala',
+    mandala: 'Janela Aberta 64',
     daily: 'Diário',
     howTo: 'Guia',
     settings: 'Ajustes',
