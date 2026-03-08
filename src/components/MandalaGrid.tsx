@@ -301,7 +301,7 @@ export default function MandalaGrid() {
                     <div className="font-medium text-xs mb-1">{cat.emoji} {cat.name}</div>
                     <div className="space-y-0.5">
                       {cat.objectiveIdeas.slice(0, 2).map((idea, i) => (
-                        <button key={i} onClick={() => { navigator.clipboard.writeText(idea); toast({ title: '📋 Copiado!', duration: 1000 }); }} className="block w-full text-left text-[10px] text-muted-foreground hover:text-foreground hover:bg-secondary/50 rounded px-1 py-0.5 transition-colors" title={t.mandala.clickToCopy}>
+                        <button key={i} onClick={() => { navigator.clipboard.writeText(idea); toast({ title: t.mandala.copied, duration: 1000 }); }} className="block w-full text-left text-[10px] text-muted-foreground hover:text-foreground hover:bg-secondary/50 rounded px-1 py-0.5 transition-colors" title={t.mandala.clickToCopy}>
                           {idea}
                         </button>
                       ))}
