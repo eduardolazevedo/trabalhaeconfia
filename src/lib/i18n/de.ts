@@ -73,6 +73,8 @@ const de: Translations = {
     invalidFile: 'Ungültige Plandatei',
   },
   themes: {
+    confia: 'Confia',
+    confiaDesc: 'Arbeite hart, vertraue auf die Ergebnisse — inspiriert von Espírito Santo',
     zen: 'Zen',
     zenDesc: 'Japanischer Minimalismus, Wabi-Sabi-inspiriert',
     bold: 'Kühn',
