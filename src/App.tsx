@@ -4,6 +4,7 @@ import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { PlanProvider } from "@/contexts/PlanContext";
+import { LanguageProvider } from "@/contexts/LanguageContext";
 import AppNav from "@/components/AppNav";
 import Index from "./pages/Index";
 import DailyPage from "./pages/DailyPage";
@@ -16,20 +17,22 @@ const queryClient = new QueryClient();
 const App = () => (
   <QueryClientProvider client={queryClient}>
     <TooltipProvider>
-      <PlanProvider>
-        <Toaster />
-        <Sonner />
-        <BrowserRouter>
-          <Routes>
-            <Route path="/" element={<Index />} />
-            <Route path="/daily" element={<DailyPage />} />
-            <Route path="/how-to" element={<HowToPage />} />
-            <Route path="/settings" element={<SettingsPage />} />
-            <Route path="*" element={<NotFound />} />
-          </Routes>
-          <AppNav />
-        </BrowserRouter>
-      </PlanProvider>
+      <LanguageProvider>
+        <PlanProvider>
+          <Toaster />
+          <Sonner />
+          <BrowserRouter>
+            <Routes>
+              <Route path="/" element={<Index />} />
+              <Route path="/daily" element={<DailyPage />} />
+              <Route path="/how-to" element={<HowToPage />} />
+              <Route path="/settings" element={<SettingsPage />} />
+              <Route path="*" element={<NotFound />} />
+            </Routes>
+            <AppNav />
+          </BrowserRouter>
+        </PlanProvider>
+      </LanguageProvider>
     </TooltipProvider>
   </QueryClientProvider>
 );
