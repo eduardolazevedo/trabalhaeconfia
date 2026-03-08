@@ -1,9 +1,10 @@
 import { NavLink } from 'react-router-dom';
-import { Grid3X3, CheckSquare, Settings } from 'lucide-react';
+import { Grid3X3, CheckSquare, Settings, HelpCircle } from 'lucide-react';
 
 const NAV_ITEMS = [
   { to: '/', icon: Grid3X3, label: 'Mandala' },
   { to: '/daily', icon: CheckSquare, label: 'Daily' },
+  { to: '/how-to', icon: HelpCircle, label: 'How To' },
   { to: '/settings', icon: Settings, label: 'Settings' },
 ];
 

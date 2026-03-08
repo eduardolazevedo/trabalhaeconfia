@@ -8,6 +8,7 @@ import AppNav from "@/components/AppNav";
 import Index from "./pages/Index";
 import DailyPage from "./pages/DailyPage";
 import SettingsPage from "./pages/SettingsPage";
+import HowToPage from "./pages/HowToPage";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -22,6 +23,7 @@ const App = () => (
           <Routes>
             <Route path="/" element={<Index />} />
             <Route path="/daily" element={<DailyPage />} />
+            <Route path="/how-to" element={<HowToPage />} />
             <Route path="/settings" element={<SettingsPage />} />
             <Route path="*" element={<NotFound />} />
           </Routes>

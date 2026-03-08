@@ -124,7 +124,11 @@ export default function MandalaGrid() {
           />
         ) : (
           <span className="text-[9px] md:text-[11px] leading-tight text-center line-clamp-3 px-0.5">
-            {content || (isCenter ? (cell.type === 'main' ? '🎯 Your Dream' : '⭐ Yearly Goal') : '+ Add habit')}
+            {content || (
+              isCenter
+                ? (cell.type === 'main' ? '🎯 Your Dream' : '⭐ Yearly Goal')
+                : (cell.type === 'yearly' ? '+ Goal' : '+ Habit')
+            )}
           </span>
         )}
       </motion.div>
