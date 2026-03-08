@@ -58,10 +58,10 @@ const de: Translations = {
     ohtaniSource: '— Harvard Business School Fallstudie',
     successStories: [
       { title: '🏫 Matsumushi-Schule — 13 Goldmedaillen', description: 'Vor Ohtani übernahm Takashi Harada die schlechteste Schule Osakas im Sport. Mit dem Offenes Fenster 64 führte er das Leichtathletikteam 6 Jahre in Folge zur #1 in Japan. 12 Schüler gewannen 13 nationale Goldmedaillen.' },
-      { title: '🏅 Pamela Dukes — Olympia-Athletin', description: 'Ehemalige amerikanische Olympia-Athletin und Toyota Connected-Führungskraft. Sie wandte die Methode auf ihre Unternehmenskarriere und die sportliche Exzellenz-Mentalität an.' },
-      { title: '🏭 Toyota-Führungskräfte — Eigenständigkeit', description: 'Toyota-Manager nutzen das Offenes Fenster 64, um technische Fähigkeiten mit "Charakter" und "sozialem Beitrag" auszubalancieren — zentrale Säulen der Harada-Methode.' },
+      { title: '🇩🇪 Deutsche Automobilindustrie', description: 'In den Toyota-Niederlassungen in Deutschland ist die Methode ein Standardwerkzeug für die Entwicklung von Führungskräften und Supervisoren — als logisches System der Verhaltens-Ingenieurwissenschaft.' },
+      { title: '🇸🇪 David Stiernholm — Europas "Struktör"', description: 'Einer der größten Strukturierungs-Experten Europas nutzt das 64-Felder-Diagramm, um Unternehmensstress zu bekämpfen und Klarheit in komplexe Projekte zu bringen. In Deutschland wird die Methode oft als "das japanische GTD" bezeichnet.' },
       { title: '📖 Norman Bodek — "Der Pate des Lean"', description: 'Der Mann, der Toyotas System in die USA brachte, übernahm die Methode persönlich und nannte sie "das beste Managementsystem der Welt". Er mentorte Hunderte von CEOs vor seinem Tod 2020.' },
-      { title: '📱 Sahil Bloom & moderne Influencer', description: 'Investor und Content-Creator Sahil Bloom popularisierte das Raster für Millionen Follower als "Destiny Engineering". Sandeep Jethwani nutzt es für Finanzplanung und Vermögensaufbau.' },
+      { title: '🧘 Selbstmanagement-Kreise', description: 'In der DACH-Region wird die Harada-Methode oft mit Getting Things Done (GTD) kombiniert. Das 64-Felder-Diagramm bricht große Visionen in Mikro-Aktionen herunter — von der Unternehmensstrategie bis zur persönlichen Entwicklung.' },
     ],
     methodNoteTitle: '💡 Mandala Chart vs. Harada-Methode',
     methodNote: 'Das Mandala Chart (von Hiroshi Matsumura in den 1970ern erstellt) wird für generisches Brainstorming verwendet. Was die Harada-Methode besonders macht, ist die Anforderung, dass die Säulen Mentale Gesundheit, Körperliche Gesundheit und Dienst-Routinen umfassen — wie "Müll aufsammeln" und "Menschen begrüßen" — die Ohtani rigoros befolgte.',
