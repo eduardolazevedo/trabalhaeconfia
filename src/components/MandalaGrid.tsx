@@ -103,7 +103,7 @@ export default function MandalaGrid() {
       return base;
     });
     setShowTemplates(false);
-    toast({ title: '📋 Modelo carregado!', description: 'Personalize à vontade.' });
+    toast({ title: t.mandala.templateLoaded, description: t.mandala.templateLoadedDesc });
   };
 
   const handleTemplateClick = (tp: ExamplePlanTranslation) => {
