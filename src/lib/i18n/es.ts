@@ -51,8 +51,8 @@ const es: Translations = {
     allComplete: '¡Lo lograste! Todos los hábitos hechos. Eso es extraordinario.',
   },
   onboarding: {
-    welcome: 'Tu vida, tu plan.',
-    welcomeSub: 'Sin gurús, sin cultura del esfuerzo excesivo. Solo 5 minutos de claridad para saber exactamente qué hacer cada día.',
+    welcome: 'Organiza tu vida en 5 minutos al día',
+    welcomeSub: 'Ventana Abierta 64 es un método simple usado por miles de personas — desde estudiantes hasta atletas olímpicos — para convertir un gran sueño en pequeños hábitos diarios. Tú eliges lo que importa, y nosotros armamos un plan práctico para seguir cada día.',
     dreamQuestion: '¿Qué es lo que más sueñas?',
     dreamPlaceholder: 'ej: Darle una vida mejor a mi familia, encontrar paz y salud...',
     dreamSuggestions: [

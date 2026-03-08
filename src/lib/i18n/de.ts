@@ -51,8 +51,8 @@ const de: Translations = {
     allComplete: 'Geschafft! Jede einzelne Gewohnheit erledigt. Das ist außergewöhnlich.',
   },
   onboarding: {
-    welcome: 'Dein Leben, dein Plan.',
-    welcomeSub: 'Keine Gurus, keine Hustle-Kultur. Nur 5 Minuten Klarheit, um genau zu wissen, was jeden Tag zu tun ist.',
+    welcome: 'Organisiere dein Leben in 5 Minuten am Tag',
+    welcomeSub: 'Offenes Fenster 64 ist eine einfache Methode, die von Tausenden genutzt wird — von Schülern bis zu Olympia-Athleten — um einen großen Traum in kleine tägliche Gewohnheiten zu verwandeln. Du wählst, was dir wichtig ist, und wir erstellen einen praktischen Plan für jeden Tag.',
     dreamQuestion: 'Wovon träumst du am meisten?',
     dreamPlaceholder: 'z.B.: Meiner Familie ein besseres Leben bieten, Frieden und Gesundheit finden...',
     dreamSuggestions: [

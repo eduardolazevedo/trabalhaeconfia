@@ -51,8 +51,8 @@ const fr: Translations = {
     allComplete: 'Vous l\'avez fait ! Chaque habitude accomplie. C\'est extraordinaire.',
   },
   onboarding: {
-    welcome: 'Votre vie, votre plan.',
-    welcomeSub: 'Pas de gourous, pas de culture du surmenage. Juste 5 minutes de clarté pour savoir exactement quoi faire chaque jour.',
+    welcome: 'Organisez votre vie en 5 minutes par jour',
+    welcomeSub: 'Fenêtre Ouverte 64 est une méthode simple utilisée par des milliers de personnes — des étudiants aux athlètes olympiques — pour transformer un grand rêve en petites habitudes quotidiennes. Vous choisissez ce qui compte, et nous créons un plan pratique à suivre chaque jour.',
     dreamQuestion: 'De quoi rêvez-vous le plus ?',
     dreamPlaceholder: 'ex : Offrir une meilleure vie à ma famille, trouver la paix et la santé...',
     dreamSuggestions: [
