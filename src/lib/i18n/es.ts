@@ -58,10 +58,10 @@ const es: Translations = {
     ohtaniSource: '— Estudio de Caso de Harvard Business School',
     successStories: [
       { title: '🏫 Escuela Matsumushi — 13 Medallas de Oro', description: 'Antes de Ohtani, Takashi Harada asumió la peor escuela de Osaka en deportes. Usando la Ventana Abierta 64, llevó al equipo de atletismo al #1 de Japón durante 6 años consecutivos. 12 alumnos ganaron 13 medallas de oro nacionales.' },
-      { title: '🏅 Pamela Dukes — Atleta Olímpica', description: 'Ex-atleta olímpica americana y ejecutiva de Toyota Connected. Aplicó el método a su carrera corporativa y para mantener la mentalidad de excelencia del deporte.' },
-      { title: '🏭 Líderes de Toyota — Autosuficiencia', description: 'Los gestores de Toyota usan la Ventana Abierta 64 para equilibrar habilidades técnicas con "carácter" y "contribución social" — pilares centrales del Método Harada.' },
+      { title: '🏗️ Alberto Fuentes y la Lean Construction en Chile', description: 'El Gerente de Operaciones de Echeverría Izquierdo es uno de los grandes entusiastas del método en América Latina, aplicándolo para transformar la cultura de liderazgo en canteiros de obras industriales.' },
+      { title: '🏭 Comunidad Lean en México y España', description: 'El método se enseña en certificaciones de "Lean Leadership" como la pieza que falta para el "lado humano" de la eficiencia japonesa. En Colombia y Argentina, se conoce como la "Mandala de Ohtani" en blogs de autoayuda y finanzas personales.' },
       { title: '📖 Norman Bodek — "El Padre de la Productividad"', description: 'El hombre que trajo el sistema Toyota a EE.UU. adoptó el método y lo llamó "el mejor sistema de gestión del mundo". Mentoreó a cientos de CEOs antes de fallecer en 2020.' },
-      { title: '📱 Sahil Bloom e Influenciadores Actuales', description: 'El inversor y creador de contenido Sahil Bloom popularizó la cuadrícula para millones como "Ingeniería del Destino". Sandeep Jethwani la usa para planificación financiera.' },
+      { title: '📱 Sahil Bloom e Influenciadores Actuales', description: 'El inversor y creador de contenido Sahil Bloom popularizó la cuadrícula para millones como "Ingeniería del Destino". Sandeep Jethwani la usa para planificación financiera y construcción de patrimonio.' },
     ],
     methodNoteTitle: '💡 Mandala Chart vs. Método Harada',
     methodNote: 'El Mandala Chart (creado por Hiroshi Matsumura en los años 70) se usa para lluvias de ideas genéricas. Lo que hace especial al Método Harada es la exigencia de que los pilares incluyan Salud Mental, Salud Física y Rutinas de Servicio — como "recoger basura" y "saludar a las personas" — que Ohtani siguió rigurosamente.',

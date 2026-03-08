@@ -58,10 +58,10 @@ const fr: Translations = {
     ohtaniSource: "— Étude de Cas Harvard Business School",
     successStories: [
       { title: '🏫 École Matsumushi — 13 Médailles d\'Or', description: 'Avant Ohtani, Takashi Harada a repris la pire école d\'Osaka en sport. Avec la Fenêtre Ouverte 64, il a mené l\'équipe d\'athlétisme au #1 du Japon pendant 6 ans consécutifs. 12 élèves ont remporté 13 médailles d\'or nationales.' },
-      { title: '🏅 Pamela Dukes — Athlète Olympique', description: 'Ancienne athlète olympique américaine et cadre chez Toyota Connected. Elle a appliqué la méthode à sa carrière professionnelle et au maintien de l\'excellence sportive.' },
-      { title: '🏭 Dirigeants Toyota — Autonomie', description: 'Les managers Toyota utilisent la Fenêtre Ouverte 64 pour équilibrer compétences techniques avec le "caractère" et la "contribution sociale" — piliers centraux de la Méthode Harada.' },
+      { title: '🇨🇦 Mathieu Laferrière — Québec', description: 'L\'un des plus grands spécialistes en networking et productivité au Canada francophone, il promeut la méthode comme "l\'outil ultime pour la confiance en soi" et l\'autonomie professionnelle.' },
+      { title: '🇫🇷 Lean Institute France', description: 'L\'institut utilise la Fenêtre Ouverte 64 dans des ateliers pour directeurs RH qui développent l\'autonomie (Self-Reliance) dans leurs équipes. En Belgique, les consultants l\'utilisent pour aligner bien-être des employés et objectifs de production.' },
       { title: '📖 Norman Bodek — "Le Parrain du Lean"', description: 'L\'homme qui a apporté le système Toyota aux États-Unis a adopté la méthode et l\'a qualifiée de "meilleur système de gestion au monde". Il a mentoré des centaines de PDG avant son décès en 2020.' },
-      { title: '📱 Sahil Bloom et Influenceurs Modernes', description: 'L\'investisseur et créateur de contenu Sahil Bloom a popularisé la grille auprès de millions de followers comme "Ingénierie du Destin". Sandeep Jethwani l\'utilise pour la planification financière.' },
+      { title: '📱 Sahil Bloom et Influenceurs Modernes', description: 'L\'investisseur et créateur de contenu Sahil Bloom a popularisé la grille auprès de millions de followers comme "Ingénierie du Destin". Sandeep Jethwani l\'utilise pour la planification financière et la construction de patrimoine.' },
     ],
     methodNoteTitle: '💡 Mandala Chart vs. Méthode Harada',
     methodNote: 'Le Mandala Chart (créé par Hiroshi Matsumura dans les années 70) est utilisé pour le brainstorming générique. Ce qui rend la Méthode Harada spéciale est l\'exigence que les piliers incluent la Santé Mentale, la Santé Physique et les Routines de Service — comme "ramasser les déchets" et "saluer les gens" — qu\'Ohtani a suivies rigoureusement.',
