@@ -61,6 +61,9 @@ export interface Translations {
     diagramCaption: string;
     ohtaniQuote: string;
     ohtaniSource: string;
+    successStories: { title: string; description: string }[];
+    methodNote: string;
+    methodNoteTitle: string;
   };
   settings: {
     title: string;
