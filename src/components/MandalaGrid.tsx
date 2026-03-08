@@ -191,7 +191,7 @@ export default function MandalaGrid() {
             <div key={`center-yo-${objIdx}`}>
               {renderCell(
                 plan.yearlyObjectives[objIdx],
-                { type: 'yearly', objectiveIndex: objIdx },
+                { type: 'yearly', objectiveIndex: objIdx, location: 'center' },
                 false
               )}
             </div>
