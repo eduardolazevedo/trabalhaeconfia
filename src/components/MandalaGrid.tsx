@@ -251,7 +251,7 @@ export default function MandalaGrid() {
           className="flex items-center gap-1.5 px-3 py-1.5 text-xs font-medium bg-card border border-border rounded-full hover:bg-secondary transition-colors"
         >
           {showCards ? <LayoutGrid className="w-3.5 h-3.5" /> : <List className="w-3.5 h-3.5" />}
-          {showCards ? 'Grade' : 'Lista'}
+          {showCards ? t.mandala.gridView : t.mandala.listView}
         </button>
       </div>
 
