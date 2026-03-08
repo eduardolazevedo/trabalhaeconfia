@@ -5,6 +5,7 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { PlanProvider } from "@/contexts/PlanContext";
 import { LanguageProvider } from "@/contexts/LanguageContext";
+import { StorageProvider } from "@/lib/storage";
 import AppNav from "@/components/AppNav";
 import Index from "./pages/Index";
 import DailyPage from "./pages/DailyPage";
@@ -18,6 +19,7 @@ const App = () => (
   <QueryClientProvider client={queryClient}>
     <TooltipProvider>
       <LanguageProvider>
+        <StorageProvider>
         <PlanProvider>
           <Toaster />
           <Sonner />
@@ -32,6 +34,7 @@ const App = () => (
             <AppNav />
           </BrowserRouter>
         </PlanProvider>
+        </StorageProvider>
       </LanguageProvider>
     </TooltipProvider>
   </QueryClientProvider>
