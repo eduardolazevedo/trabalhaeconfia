@@ -51,8 +51,8 @@ const en: Translations = {
     allComplete: "You did it! Every single habit, done. That's extraordinary.",
   },
   onboarding: {
-    welcome: 'Your life, your plan.',
-    welcomeSub: 'No gurus, no hustle culture. Just 5 minutes of clarity to know exactly what to do each day.',
+    welcome: 'Organize your life in 5 minutes a day',
+    welcomeSub: 'Open Window 64 is a simple method used by thousands — from students to Olympic athletes — to turn a big dream into small daily habits. You pick what matters, and we build a practical plan you can follow every day.',
     dreamQuestion: 'What do you dream of most?',
     dreamPlaceholder: "e.g. Give my family a better life, find peace and health...",
     dreamSuggestions: [

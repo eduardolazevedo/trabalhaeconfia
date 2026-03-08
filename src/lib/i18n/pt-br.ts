@@ -51,8 +51,8 @@ const ptBr: Translations = {
     allComplete: 'Você conseguiu! Todos os hábitos feitos. Isso é extraordinário.',
   },
   onboarding: {
-    welcome: 'Seu plano, Sua vida.',
-    welcomeSub: 'Sem gurus, sem cultura do esforço excessivo. Só 5 minutos de clareza para saber exatamente o que fazer cada dia.',
+    welcome: 'Organize sua vida em 5 minutos por dia',
+    welcomeSub: 'A Janela Aberta 64 é um método simples usado por milhares de pessoas — de estudantes a atletas olímpicos — para transformar um sonho grande em pequenos hábitos diários. Você vai escolher o que importa, e nós montamos um plano prático pra você seguir todo dia.',
     dreamQuestion: 'O que você mais sonha?',
     dreamPlaceholder: 'ex: Dar uma vida melhor para minha família, encontrar paz e saúde...',
     dreamSuggestions: [
