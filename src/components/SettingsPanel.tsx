@@ -8,6 +8,7 @@ import { useRef } from 'react';
 import { toast } from 'sonner';
 
 const THEMES_CONFIG: { id: Theme; preview: string[] }[] = [
+  { id: 'confia', preview: ['hsl(210, 30%, 98%)', 'hsl(205, 65%, 52%)', 'hsl(345, 55%, 68%)'] },
   { id: 'zen', preview: ['hsl(40, 20%, 97%)', 'hsl(25, 30%, 35%)', 'hsl(15, 40%, 55%)'] },
   { id: 'bold', preview: ['hsl(230, 25%, 8%)', 'hsl(150, 80%, 50%)', 'hsl(40, 95%, 55%)'] },
   { id: 'warm', preview: ['hsl(30, 30%, 96%)', 'hsl(155, 35%, 38%)', 'hsl(18, 65%, 55%)'] },
