@@ -1,4 +1,4 @@
-import React, { createContext, useContext, useState, useCallback } from 'react';
+import React, { createContext, useContext, useState, useCallback, type ReactNode } from 'react';
 import { type Language, type Translations, getTranslations } from '@/lib/i18n';
 
 const LANG_KEY = 'harada-lang';
