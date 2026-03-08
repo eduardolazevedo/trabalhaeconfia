@@ -1,4 +1,4 @@
-import React, { createContext, useContext, useState, useCallback, type ReactNode } from 'react';
+import React, { createContext, useContext, useState, useCallback } from 'react';
 import { type Language, type Translations, getTranslations } from '@/lib/i18n';
 
 const LANG_KEY = 'harada-lang';
@@ -10,7 +10,6 @@ function loadLanguage(): Language {
       return stored as Language;
     }
   } catch {}
-  // Auto-detect from browser
   const browserLang = navigator.language.toLowerCase();
   if (browserLang.startsWith('pt')) return 'pt-br';
   if (browserLang.startsWith('es')) return 'es';
@@ -25,7 +24,15 @@ interface LanguageContextType {
   t: Translations;
 }
 
-const LanguageContext = createContext<LanguageContextType | null>(null);
+// Provide a default value so HMR module duplication never crashes
+const defaultLang = loadLanguage();
+const defaultValue: LanguageContextType = {
+  language: defaultLang,
+  setLanguage: () => {},
+  t: getTranslations(defaultLang),
+};
+
+const LanguageContext = createContext<LanguageContextType>(defaultValue);
 
 export function LanguageProvider({ children }: { children: React.ReactNode }) {
   const [language, setLangState] = useState<Language>(loadLanguage);
@@ -44,7 +51,5 @@ export function LanguageProvider({ children }: { children: React.ReactNode }) {
 }
 
 export function useLanguage() {
-  const ctx = useContext(LanguageContext);
-  if (!ctx) throw new Error('useLanguage must be used within LanguageProvider');
-  return ctx;
+  return useContext(LanguageContext);
 }
