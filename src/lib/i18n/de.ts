@@ -31,7 +31,7 @@ const de: Translations = {
     completed: 'Erledigt',
     progress: 'Fortschritt',
     noHabits: 'Noch keine Gewohnheiten',
-    noHabitsDesc: 'Gehe zum Mandala-Diagramm, um zuerst deine Ziele und täglichen Aktionen festzulegen.',
+    noHabitsDesc: 'Gehe zum Offenes Fenster 64, um zuerst deine Ziele und täglichen Aktionen festzulegen.',
     objective: 'Ziel',
     motivational: {
       '0': 'Los geht\'s! Jede Reise beginnt mit einem Schritt.',

@@ -31,7 +31,7 @@ const fr: Translations = {
     completed: 'Complétés',
     progress: 'Progrès',
     noHabits: "Aucune habitude définie",
-    noHabitsDesc: "Allez au Graphique Mandala pour définir vos objectifs et actions quotidiennes d'abord.",
+    noHabitsDesc: "Allez à la Fenêtre Ouverte 64 pour définir vos objectifs et actions quotidiennes d'abord.",
     objective: 'Objectif',
     motivational: {
       '0': "C'est parti ! Chaque voyage commence par un pas.",

@@ -31,7 +31,7 @@ const ptBr: Translations = {
     completed: 'Concluídos',
     progress: 'Progresso',
     noHabits: 'Nenhum hábito definido',
-    noHabitsDesc: 'Vá ao Gráfico Mandala para definir suas metas e ações diárias primeiro.',
+    noHabitsDesc: 'Vá à Janela Aberta 64 para definir suas metas e ações diárias primeiro.',
     objective: 'Objetivo',
     motivational: {
       '0': 'Vamos começar! Toda jornada começa com um passo.',

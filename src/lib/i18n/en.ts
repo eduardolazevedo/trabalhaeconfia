@@ -31,7 +31,7 @@ const en: Translations = {
     completed: 'Completed',
     progress: 'Progress',
     noHabits: 'No habits set yet',
-    noHabitsDesc: 'Head to the Mandala Chart to define your goals and daily actions first.',
+    noHabitsDesc: 'Head to the Open Window 64 chart to define your goals and daily actions first.',
     objective: 'Objective',
     motivational: {
       '0': "Let's get started! Every journey begins with one step.",
