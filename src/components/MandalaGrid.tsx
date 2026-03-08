@@ -359,10 +359,10 @@ export default function MandalaGrid() {
       <ConfirmDialog
         open={confirmDialog.open}
         onOpenChange={(open) => setConfirmDialog({ open, template: open ? confirmDialog.template : null })}
-        title="Substituir plano atual?"
-        description="Isso vai substituir seu plano atual pelo modelo selecionado. Suas metas e hábitos atuais serão perdidos. Tem certeza?"
-        confirmLabel="Sim, carregar modelo"
-        cancelLabel="Cancelar"
+        title={t.mandala.replaceTitle}
+        description={t.mandala.replaceDesc}
+        confirmLabel={t.mandala.replaceConfirmBtn}
+        cancelLabel={t.mandala.cancelBtn}
         onConfirm={() => {
           if (confirmDialog.template) loadTemplate(confirmDialog.template);
         }}
