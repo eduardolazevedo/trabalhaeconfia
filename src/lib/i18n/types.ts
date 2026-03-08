@@ -41,6 +41,19 @@ export interface Translations {
     habitIdeasCount: string;
     browseCategoriesDesc: string;
     clickToCopy: string;
+    saved: string;
+    templateLoaded: string;
+    templateLoadedDesc: string;
+    copied: string;
+    gridView: string;
+    listView: string;
+    replaceTitle: string;
+    replaceDesc: string;
+    replaceConfirmBtn: string;
+    cancelBtn: string;
+    tapToSetDream: string;
+    goalLabel: string;
+    addYearlyGoal: string;
   };
   daily: {
     title: string;
