@@ -8,7 +8,7 @@ const es: Translations = {
     settings: 'Ajustes',
   },
   mandala: {
-    title: 'Gráfico Mandala',
+    title: 'Ventana Abierta 64',
     subtitle: 'Haz clic en cualquier celda para editar. Centro = tu sueño.',
     yourDream: '🎯 Tu Sueño',
     yearlyGoal: '⭐ Meta Anual',
