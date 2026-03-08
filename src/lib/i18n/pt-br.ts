@@ -51,7 +51,7 @@ const ptBr: Translations = {
     allComplete: 'Você conseguiu! Todos os hábitos feitos. Isso é extraordinário.',
   },
   onboarding: {
-    welcome: 'Sua vida, seu plano.',
+    welcome: 'Seu plano, Sua vida.',
     welcomeSub: 'Sem gurus, sem cultura do esforço excessivo. Só 5 minutos de clareza para saber exatamente o que fazer cada dia.',
     dreamQuestion: 'O que você mais sonha?',
     dreamPlaceholder: 'ex: Dar uma vida melhor para minha família, encontrar paz e saúde...',
