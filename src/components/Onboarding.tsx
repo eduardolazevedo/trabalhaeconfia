@@ -37,19 +37,18 @@ export default function Onboarding({ onComplete }: OnboardingProps) {
   };
 
   const buildPlan = () => {
+    const areaObjectives = t.onboarding.areaObjectives;
     updatePlan(() => {
       const plan = createEmptyPlan();
       plan.mainGoal = dream;
-      // Fill objectives from selected areas
       const areas = selectedAreas.length > 0 ? selectedAreas : ['health', 'finance'];
       let objIdx = 0;
       areas.forEach(areaId => {
-        const area = AREA_OBJECTIVES[areaId];
+        const area = areaObjectives[areaId];
         if (!area) return;
         area.objectives.forEach(obj => {
           if (objIdx < 8) {
             plan.yearlyObjectives[objIdx] = obj;
-            // Fill some actions
             const areaActions = area.actions;
             Object.entries(areaActions).forEach(([posStr, text]) => {
               const pos = parseInt(posStr);
