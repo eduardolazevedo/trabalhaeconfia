@@ -49,6 +49,7 @@ interface EditingCell {
   type: 'main' | 'yearly' | 'daily';
   objectiveIndex?: number;
   actionIndex?: number;
+  location?: 'center' | 'outer';
 }
 
 export default function MandalaGrid() {
@@ -92,7 +93,8 @@ export default function MandalaGrid() {
     const isEditing =
       editing?.type === cell.type &&
       editing?.objectiveIndex === cell.objectiveIndex &&
-      editing?.actionIndex === cell.actionIndex;
+      editing?.actionIndex === cell.actionIndex &&
+      editing?.location === cell.location;
 
     return (
       <motion.div
@@ -148,7 +150,7 @@ export default function MandalaGrid() {
               <div key={`yo-${objectiveIndex}`}>
                 {renderCell(
                   yearlyGoal,
-                  { type: 'yearly', objectiveIndex },
+                  { type: 'yearly', objectiveIndex, location: 'outer' },
                   true,
                   objectiveIndex
                 )}
@@ -160,7 +162,7 @@ export default function MandalaGrid() {
             <div key={`da-${objectiveIndex}-${actionIdx}`}>
               {renderCell(
                 action?.text || '',
-                { type: 'daily', objectiveIndex, actionIndex: actionIdx },
+                { type: 'daily', objectiveIndex, actionIndex: actionIdx, location: 'outer' },
                 false
               )}
             </div>
@@ -179,7 +181,7 @@ export default function MandalaGrid() {
               <div key="main-goal">
                 {renderCell(
                   plan.mainGoal,
-                  { type: 'main' },
+                  { type: 'main', location: 'center' },
                   true
                 )}
               </div>
@@ -189,7 +191,7 @@ export default function MandalaGrid() {
             <div key={`center-yo-${objIdx}`}>
               {renderCell(
                 plan.yearlyObjectives[objIdx],
-                { type: 'yearly', objectiveIndex: objIdx },
+                { type: 'yearly', objectiveIndex: objIdx, location: 'center' },
                 false
               )}
             </div>
