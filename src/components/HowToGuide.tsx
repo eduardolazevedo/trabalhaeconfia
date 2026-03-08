@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import { Target, Grid3X3, CheckSquare, ArrowRight } from 'lucide-react';
+import { Target, Grid3X3, CheckSquare, ArrowRight, Trophy, Star } from 'lucide-react';
 import { useLanguage } from '@/contexts/LanguageContext';
 
 const STEP_ICONS = [Target, Grid3X3, ArrowRight, CheckSquare];
@@ -64,6 +64,32 @@ export default function HowToGuide() {
         })}
       </div>
 
+      {/* Success Stories */}
+      {t.howTo.successStories && t.howTo.successStories.length > 0 && (
+        <div className="mt-10">
+          <div className="flex items-center gap-2 mb-4">
+            <Trophy className="w-5 h-5 text-accent" />
+            <h2 className="text-lg font-bold">
+              {t.howTo.successStories.length > 0 ? '✨' : ''} Success Stories
+            </h2>
+          </div>
+          <div className="space-y-3">
+            {t.howTo.successStories.map((story, i) => (
+              <motion.div
+                key={i}
+                initial={{ opacity: 0, y: 12 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.4 + i * 0.08 }}
+                className="bg-card border border-border rounded-lg p-4"
+              >
+                <h3 className="font-semibold text-sm mb-1">{story.title}</h3>
+                <p className="text-xs text-muted-foreground leading-relaxed">{story.description}</p>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      )}
+
       {/* Ohtani reference */}
       <div className="mt-8 p-4 bg-gradient-subtle rounded-lg border border-border">
         <p className="text-xs text-muted-foreground leading-relaxed text-center italic">
@@ -71,6 +97,21 @@ export default function HowToGuide() {
         </p>
         <p className="text-[10px] text-muted-foreground text-center mt-2">{t.howTo.ohtaniSource}</p>
       </div>
+
+      {/* Method Note */}
+      {t.howTo.methodNote && (
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 0.6 }}
+          className="mt-6 p-4 bg-secondary/50 rounded-lg border border-border"
+        >
+          <h3 className="font-semibold text-sm mb-2">{t.howTo.methodNoteTitle}</h3>
+          <p className="text-xs text-muted-foreground leading-relaxed">
+            {t.howTo.methodNote}
+          </p>
+        </motion.div>
+      )}
     </div>
   );
 }
