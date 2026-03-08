@@ -110,6 +110,19 @@ export default function SettingsPanel() {
         </div>
       </div>
 
+      {/* Data Privacy Notice */}
+      <div className="mb-6 p-4 bg-secondary/50 rounded-lg border border-border">
+        <div className="flex items-center gap-2 mb-2">
+          <Shield className="w-4 h-4 text-muted-foreground" />
+          <span className="font-medium text-sm">Privacy Note</span>
+        </div>
+        <p className="text-xs text-muted-foreground leading-relaxed">
+          Your plan is stored locally in this browser only. It is not sent to any server. 
+          On shared or public computers, export your data and clear it when done. 
+          For maximum privacy, use a private/incognito window.
+        </p>
+      </div>
+
       {/* Export / Import */}
       <div className="space-y-3">
         <h2 className="font-semibold text-lg mb-3">Data</h2>
