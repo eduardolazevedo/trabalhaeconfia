@@ -43,7 +43,7 @@ export function createEmptyPlan(): HaradaPlan {
     yearlyObjectives: Array(8).fill(''),
     dailyActions,
     completions: {},
-    theme: 'zen',
+    theme: 'confia',
     createdAt: new Date().toISOString(),
   };
 }
