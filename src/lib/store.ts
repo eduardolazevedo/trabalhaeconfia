@@ -64,11 +64,58 @@ export function exportPlan(plan: HaradaPlan): string {
   return JSON.stringify(plan, null, 2);
 }
 
+function isValidAction(a: unknown): a is DailyAction {
+  if (typeof a !== 'object' || a === null) return false;
+  const obj = a as Record<string, unknown>;
+  return (
+    typeof obj.id === 'string' && obj.id.length <= 50 &&
+    typeof obj.text === 'string' && obj.text.length <= 500 &&
+    typeof obj.yearlyObjectiveIndex === 'number' &&
+    Number.isInteger(obj.yearlyObjectiveIndex) &&
+    obj.yearlyObjectiveIndex >= 0 && obj.yearlyObjectiveIndex <= 7 &&
+    typeof obj.positionIndex === 'number' &&
+    Number.isInteger(obj.positionIndex) &&
+    obj.positionIndex >= 0 && obj.positionIndex <= 7
+  );
+}
+
+function isValidCompletions(completions: unknown): completions is Record<string, Completion> {
+  if (typeof completions !== 'object' || completions === null) return false;
+  const datePattern = /^\d{4}-\d{2}-\d{2}$/;
+  for (const [key, value] of Object.entries(completions as Record<string, unknown>)) {
+    if (!datePattern.test(key)) return false;
+    if (typeof value !== 'object' || value === null) return false;
+    for (const v of Object.values(value as Record<string, unknown>)) {
+      if (typeof v !== 'boolean') return false;
+    }
+  }
+  return true;
+}
+
+const VALID_THEMES: Theme[] = ['zen', 'bold', 'warm', 'editorial'];
+
 export function importPlan(json: string): HaradaPlan | null {
   try {
     const data = JSON.parse(json);
-    if (data.mainGoal !== undefined && data.yearlyObjectives && data.dailyActions) {
-      return data as HaradaPlan;
+    if (
+      typeof data.mainGoal === 'string' && data.mainGoal.length <= 500 &&
+      Array.isArray(data.yearlyObjectives) &&
+      data.yearlyObjectives.length === 8 &&
+      data.yearlyObjectives.every((s: unknown) => typeof s === 'string' && (s as string).length <= 500) &&
+      Array.isArray(data.dailyActions) &&
+      data.dailyActions.length === 64 &&
+      data.dailyActions.every((a: unknown) => isValidAction(a)) &&
+      (data.completions === undefined || isValidCompletions(data.completions)) &&
+      (data.theme === undefined || VALID_THEMES.includes(data.theme))
+    ) {
+      return {
+        mainGoal: data.mainGoal,
+        yearlyObjectives: data.yearlyObjectives,
+        dailyActions: data.dailyActions,
+        completions: data.completions || {},
+        theme: VALID_THEMES.includes(data.theme) ? data.theme : 'zen',
+        createdAt: typeof data.createdAt === 'string' ? data.createdAt.slice(0, 30) : new Date().toISOString(),
+      };
     }
   } catch {}
   return null;
