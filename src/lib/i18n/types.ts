@@ -78,6 +78,8 @@ export interface Translations {
     invalidFile: string;
   };
   themes: {
+    confia: string;
+    confiaDesc: string;
     zen: string;
     zenDesc: string;
     bold: string;
