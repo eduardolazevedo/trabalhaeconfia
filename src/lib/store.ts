@@ -1,6 +1,6 @@
 // Data model and localStorage persistence for Harada Method
 
-export type Theme = 'zen' | 'bold' | 'warm' | 'editorial';
+export type Theme = 'confia' | 'zen' | 'bold' | 'warm' | 'editorial';
 
 export interface DailyAction {
   id: string;
