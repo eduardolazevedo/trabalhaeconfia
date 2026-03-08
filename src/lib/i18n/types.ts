@@ -85,6 +85,7 @@ export interface Translations {
     startButton: string;
     skipButton: string;
     step: string;
+    areaObjectives: Record<string, { objectives: string[]; actions: Record<string, string> }>;
   };
   wizard: {
     introTitle: string;
