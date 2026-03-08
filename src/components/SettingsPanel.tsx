@@ -23,6 +23,7 @@ export default function SettingsPanel() {
   const fileInputRef = useRef<HTMLInputElement>(null);
 
   const themesMeta: Record<Theme, { name: string; description: string }> = {
+    confia: { name: t.themes.confia, description: t.themes.confiaDesc },
     zen: { name: t.themes.zen, description: t.themes.zenDesc },
     bold: { name: t.themes.bold, description: t.themes.boldDesc },
     warm: { name: t.themes.warm, description: t.themes.warmDesc },
