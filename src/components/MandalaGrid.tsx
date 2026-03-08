@@ -82,7 +82,7 @@ export default function MandalaGrid() {
       }
       return next;
     });
-    toast({ title: '✅ Salvo!', duration: 1500 });
+    toast({ title: t.mandala.saved, duration: 1500 });
     setEditing(null);
   };
 
