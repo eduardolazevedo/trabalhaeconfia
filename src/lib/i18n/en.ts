@@ -44,30 +44,27 @@ const en: Translations = {
   },
   howTo: {
     title: 'How It Works',
-    subtitle: 'The Harada Method — used by Shohei Ohtani to become the greatest baseball player in history.',
+    subtitle: 'The Harada Method — created by Takashi Harada for ordinary people. Work hard, trust the results.',
     steps: [
-      {
-        title: '1. Set Your Dream Goal',
-        description: 'Click the center cell of the entire grid — this is your multi-year life objective. Think big: "Become the best version of myself" or "Build a thriving business."',
-      },
-      {
-        title: '2. Define 8 Yearly Objectives',
-        description: 'The 8 cells surrounding your dream goal each represent a yearly objective. These are the key areas that, if achieved this year, will move you closer to your dream. Examples: Health, Career, Relationships, Finance...',
-      },
-      {
-        title: '3. Plan 64 Daily Actions',
-        description: 'Each yearly objective has its own 3×3 block in the outer ring. The center of each block mirrors the yearly goal. Fill the 8 surrounding cells with specific daily habits that drive that objective.',
-      },
-      {
-        title: '4. Track Daily',
-        description: 'Switch to the Daily tab to check off your habits each day. Build streaks, track completion rates, and watch your consistency grow over time.',
-      },
+      { title: '1. Set Your Dream Goal', description: 'Click the center cell of the entire grid — this is your multi-year life objective. Think big: "Become the best version of myself" or "Build a thriving business."' },
+      { title: '2. Define 8 Yearly Objectives', description: 'The 8 cells surrounding your dream goal each represent a yearly objective. These are the key areas that, if achieved this year, will move you closer to your dream.' },
+      { title: '3. Plan 64 Daily Actions', description: 'Each yearly objective has its own 3×3 block in the outer ring. Fill the 8 surrounding cells with specific daily habits that drive that objective.' },
+      { title: '4. Track Daily', description: 'Switch to the Daily tab to check off your habits each day. Build streaks, track completion rates, and watch your consistency grow over time.' },
     ],
     diagramDream: '🎯 Dream',
     diagramGoal: 'Goal',
     diagramCaption: 'Center = Your Dream → 8 Yearly Goals → 64 Daily Habits',
-    ohtaniQuote: '"As a teenager in Japan, Shohei Ohtani learned to break an audacious goal into small, measurable behaviors — from strength routines to mental habits to community contributions. That discipline shaped his development for years."',
+    ohtaniQuote: '"As a teenager in Japan, Shohei Ohtani learned to break an audacious goal into small, measurable behaviors — from strength routines to mental habits to community contributions like picking up trash and greeting everyone warmly."',
     ohtaniSource: '— Harvard Business School Case Study',
+    successStories: [
+      { title: '🏫 Matsumushi School — 13 Gold Medals', description: 'Before Ohtani, Takashi Harada took over the worst-performing school in Osaka. Using the Open Window 64, he led the track team to #1 in Japan for 6 consecutive years. 12 students won 13 national gold medals and many earned elite university scholarships.' },
+      { title: '🏅 Pamela Dukes — Olympic Athlete', description: 'Former American Olympic athlete and Toyota Connected executive. She applied the method to her corporate career and to maintain the excellence mindset she developed in sports.' },
+      { title: '🏭 Toyota Leaders — Self-Reliance', description: 'Toyota managers use the Open Window 64 to balance technical skill development with "character" and "social contribution" — central pillars of the Harada Method.' },
+      { title: '📖 Norman Bodek — "The Godfather of Lean"', description: 'The man who brought Toyota\'s system to the US personally adopted the method and called it "the best management system in the world." He mentored hundreds of CEOs before passing in 2020.' },
+      { title: '📱 Sahil Bloom & Modern Influencers', description: 'Investor and content creator Sahil Bloom popularized the grid to millions of followers as "Destiny Engineering." Sandeep Jethwani uses it for financial planning and wealth building.' },
+    ],
+    methodNoteTitle: '💡 Mandala Chart vs. Harada Method',
+    methodNote: 'The Mandala Chart (created by Hiroshi Matsumura in the 1970s) is used for generic brainstorming. What makes the Harada Method special is the requirement that pillars include Mental Health, Physical Health, and Service Routines — like "pick up trash" and "greet people" — which Ohtani followed rigorously.',
   },
   settings: {
     title: 'Settings',
