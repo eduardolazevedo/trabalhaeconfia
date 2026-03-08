@@ -82,7 +82,7 @@ export default function MandalaGrid() {
       }
       return next;
     });
-    toast({ title: '✅ Salvo!', duration: 1500 });
+    toast({ title: t.mandala.saved, duration: 1500 });
     setEditing(null);
   };
 
@@ -103,7 +103,7 @@ export default function MandalaGrid() {
       return base;
     });
     setShowTemplates(false);
-    toast({ title: '📋 Modelo carregado!', description: 'Personalize à vontade.' });
+    toast({ title: t.mandala.templateLoaded, description: t.mandala.templateLoadedDesc });
   };
 
   const handleTemplateClick = (tp: ExamplePlanTranslation) => {
@@ -251,7 +251,7 @@ export default function MandalaGrid() {
           className="flex items-center gap-1.5 px-3 py-1.5 text-xs font-medium bg-card border border-border rounded-full hover:bg-secondary transition-colors"
         >
           {showCards ? <LayoutGrid className="w-3.5 h-3.5" /> : <List className="w-3.5 h-3.5" />}
-          {showCards ? 'Grade' : 'Lista'}
+          {showCards ? t.mandala.gridView : t.mandala.listView}
         </button>
       </div>
 
@@ -301,7 +301,7 @@ export default function MandalaGrid() {
                     <div className="font-medium text-xs mb-1">{cat.emoji} {cat.name}</div>
                     <div className="space-y-0.5">
                       {cat.objectiveIdeas.slice(0, 2).map((idea, i) => (
-                        <button key={i} onClick={() => { navigator.clipboard.writeText(idea); toast({ title: '📋 Copiado!', duration: 1000 }); }} className="block w-full text-left text-[10px] text-muted-foreground hover:text-foreground hover:bg-secondary/50 rounded px-1 py-0.5 transition-colors" title={t.mandala.clickToCopy}>
+                        <button key={i} onClick={() => { navigator.clipboard.writeText(idea); toast({ title: t.mandala.copied, duration: 1000 }); }} className="block w-full text-left text-[10px] text-muted-foreground hover:text-foreground hover:bg-secondary/50 rounded px-1 py-0.5 transition-colors" title={t.mandala.clickToCopy}>
                           {idea}
                         </button>
                       ))}
@@ -359,10 +359,10 @@ export default function MandalaGrid() {
       <ConfirmDialog
         open={confirmDialog.open}
         onOpenChange={(open) => setConfirmDialog({ open, template: open ? confirmDialog.template : null })}
-        title="Substituir plano atual?"
-        description="Isso vai substituir seu plano atual pelo modelo selecionado. Suas metas e hábitos atuais serão perdidos. Tem certeza?"
-        confirmLabel="Sim, carregar modelo"
-        cancelLabel="Cancelar"
+        title={t.mandala.replaceTitle}
+        description={t.mandala.replaceDesc}
+        confirmLabel={t.mandala.replaceConfirmBtn}
+        cancelLabel={t.mandala.cancelBtn}
         onConfirm={() => {
           if (confirmDialog.template) loadTemplate(confirmDialog.template);
         }}

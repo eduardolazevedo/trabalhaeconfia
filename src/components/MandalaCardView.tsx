@@ -1,12 +1,14 @@
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { usePlan } from '@/contexts/PlanContext';
+import { useLanguage } from '@/contexts/LanguageContext';
 import { getActionsForObjective } from '@/lib/store';
 import { ChevronDown, ChevronUp, Pencil, Check } from 'lucide-react';
 import { toast } from '@/hooks/use-toast';
 
 export default function MandalaCardView() {
   const { plan, updatePlan } = usePlan();
+  const { t } = useLanguage();
   const [expandedIdx, setExpandedIdx] = useState<number | null>(null);
   const [editingCell, setEditingCell] = useState<{ type: string; objIdx?: number; actIdx?: number } | null>(null);
   const [editValue, setEditValue] = useState('');
@@ -35,7 +37,7 @@ export default function MandalaCardView() {
       }
       return next;
     });
-    toast({ title: '✅ Salvo!', duration: 1500 });
+    toast({ title: t.mandala.saved, duration: 1500 });
     setEditingCell(null);
   };
 
@@ -91,7 +93,7 @@ export default function MandalaCardView() {
         initial={{ opacity: 0, y: 10 }}
         animate={{ opacity: 1, y: 0 }}
       >
-        <div className="text-[10px] uppercase tracking-wider opacity-70 mb-1">🎯 Seu Sonho</div>
+        <div className="text-[10px] uppercase tracking-wider opacity-70 mb-1">{t.mandala.yourDream}</div>
         {isEditing('main') ? (
           <div className="flex items-center gap-2">
             <input
@@ -112,7 +114,7 @@ export default function MandalaCardView() {
             onClick={() => startEdit('main', plan.mainGoal)}
           >
             <span className={`text-base font-bold flex-1 ${!plan.mainGoal ? 'opacity-50 italic' : ''}`}>
-              {plan.mainGoal || 'Toque para definir seu sonho...'}
+              {plan.mainGoal || t.mandala.tapToSetDream}
             </span>
             <Pencil className="w-4 h-4 opacity-40 group-hover:opacity-80 transition-opacity shrink-0" />
           </button>
@@ -137,9 +139,9 @@ export default function MandalaCardView() {
             <div className="flex items-center gap-3 p-3">
               <div className="flex-1 min-w-0">
                 <div className="text-[10px] uppercase tracking-wider text-muted-foreground mb-0.5">
-                  Meta {objIdx + 1}
+                  {t.mandala.goalLabel} {objIdx + 1}
                 </div>
-                {renderEditableField('yearly', objective, '+ Adicionar meta anual', objIdx)}
+                {renderEditableField('yearly', objective, t.mandala.addYearlyGoal, objIdx)}
               </div>
               <button
                 onClick={() => setExpandedIdx(isExpanded ? null : objIdx)}
@@ -178,7 +180,7 @@ export default function MandalaCardView() {
                         <span className="w-5 h-5 rounded bg-muted text-muted-foreground text-[10px] flex items-center justify-center shrink-0">
                           {actIdx + 1}
                         </span>
-                        {renderEditableField('daily', action.text, '+ Adicionar hábito', objIdx, action.positionIndex)}
+                        {renderEditableField('daily', action.text, t.mandala.addHabit, objIdx, action.positionIndex)}
                       </div>
                     ))}
                   </div>

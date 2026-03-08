@@ -41,6 +41,19 @@ export interface Translations {
     habitIdeasCount: string;
     browseCategoriesDesc: string;
     clickToCopy: string;
+    saved: string;
+    templateLoaded: string;
+    templateLoadedDesc: string;
+    copied: string;
+    gridView: string;
+    listView: string;
+    replaceTitle: string;
+    replaceDesc: string;
+    replaceConfirmBtn: string;
+    cancelBtn: string;
+    tapToSetDream: string;
+    goalLabel: string;
+    addYearlyGoal: string;
   };
   daily: {
     title: string;
@@ -72,6 +85,25 @@ export interface Translations {
     startButton: string;
     skipButton: string;
     step: string;
+    areaObjectives: Record<string, { objectives: string[]; actions: Record<string, string> }>;
+  };
+  wizard: {
+    introTitle: string;
+    introDesc: string;
+    introTip: string;
+    startBtn: string;
+    skipBtn: string;
+    goalLabel: string;
+    goalPlaceholder: string;
+    habitsLabel: string;
+    habitPlaceholder: string;
+    moreHabitsNote: string;
+    backBtn: string;
+    nextBtn: string;
+    finishBtn: string;
+    planReady: string;
+    planReadyDesc: string;
+    metaOf: string;
   };
   howTo: {
     title: string;

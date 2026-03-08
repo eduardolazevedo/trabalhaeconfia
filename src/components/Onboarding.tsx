@@ -18,33 +18,6 @@ export function useOnboarding() {
   return { onboardingDone: done, markOnboardingDone: markDone };
 }
 
-// Mapeamento de áreas para objetivos e ações sugeridas (PT-BR)
-const AREA_OBJECTIVES: Record<string, { objectives: string[]; actions: Record<string, string> }> = {
-  family: {
-    objectives: ['Comunicação e diálogo aberto', 'Tempo de qualidade em família'],
-    actions: { '0': 'Jantar juntos sem celular', '1': 'Perguntar "como foi seu dia?" com atenção', '2': 'Passeio em família no fim de semana', '3': 'Ler para os filhos antes de dormir' },
-  },
-  health: {
-    objectives: ['Aptidão física', 'Nutrição e descanso'],
-    actions: { '0': 'Caminhar 30 min por dia', '1': 'Beber 2L de água', '2': 'Dormir 7+ horas', '3': 'Cozinhar uma refeição saudável' },
-  },
-  finance: {
-    objectives: ['Controle de gastos e poupança', 'Eliminação de dívidas'],
-    actions: { '0': 'Anotar todos os gastos do dia', '1': 'Revisar orçamento semanal', '2': 'Sem compras por impulso hoje', '3': 'Poupar um valor fixo diário' },
-  },
-  career: {
-    objectives: ['Dominar habilidades essenciais', 'Crescimento profissional'],
-    actions: { '0': 'Trabalho focado por 2 horas', '1': 'Ler notícias do setor', '2': 'Fazer networking com 1 pessoa', '3': 'Atualizar portfólio/currículo' },
-  },
-  learning: {
-    objectives: ['Aprendizado contínuo', 'Desenvolvimento de habilidades'],
-    actions: { '0': 'Ler por 30 minutos', '1': 'Assistir um vídeo educativo', '2': 'Praticar habilidade nova por 15 min', '3': 'Ensinar algo a alguém' },
-  },
-  spiritual: {
-    objectives: ['Paz interior e mindfulness', 'Prática de gratidão'],
-    actions: { '0': 'Meditar por 10 minutos', '1': 'Escrever 3 itens de gratidão', '2': 'Passar tempo na natureza', '3': 'Realizar um ato de bondade' },
-  },
-};
 
 interface OnboardingProps {
   onComplete: () => void;
@@ -64,19 +37,18 @@ export default function Onboarding({ onComplete }: OnboardingProps) {
   };
 
   const buildPlan = () => {
+    const areaObjectives = t.onboarding.areaObjectives;
     updatePlan(() => {
       const plan = createEmptyPlan();
       plan.mainGoal = dream;
-      // Fill objectives from selected areas
       const areas = selectedAreas.length > 0 ? selectedAreas : ['health', 'finance'];
       let objIdx = 0;
       areas.forEach(areaId => {
-        const area = AREA_OBJECTIVES[areaId];
+        const area = areaObjectives[areaId];
         if (!area) return;
         area.objectives.forEach(obj => {
           if (objIdx < 8) {
             plan.yearlyObjectives[objIdx] = obj;
-            // Fill some actions
             const areaActions = area.actions;
             Object.entries(areaActions).forEach(([posStr, text]) => {
               const pos = parseInt(posStr);
