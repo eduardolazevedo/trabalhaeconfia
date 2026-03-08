@@ -92,7 +92,7 @@ function isValidCompletions(completions: unknown): completions is Record<string,
   return true;
 }
 
-const VALID_THEMES: Theme[] = ['zen', 'bold', 'warm', 'editorial'];
+const VALID_THEMES: Theme[] = ['confia', 'zen', 'bold', 'warm', 'editorial'];
 
 export function importPlan(json: string): HaradaPlan | null {
   try {
