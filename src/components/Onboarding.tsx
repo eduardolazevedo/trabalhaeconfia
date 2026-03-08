@@ -59,7 +59,7 @@ export default function Onboarding({ onComplete }: OnboardingProps) {
 
   const toggleArea = (id: string) => {
     setSelectedAreas(prev =>
-      prev.includes(id) ? prev.filter(a => a !== id) : prev.length < 4 ? [...prev, id] : prev
+      prev.includes(id) ? prev.filter(a => a !== id) : prev.length < 3 ? [...prev, id] : prev
     );
   };
 
