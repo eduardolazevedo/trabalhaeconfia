@@ -2,7 +2,7 @@ import type { Translations } from './types';
 
 const fr: Translations = {
   nav: {
-    mandala: 'Fenêtre Ouverte 64',
+    mandala: 'Fenêtre Ouverte',
     daily: 'Quotidien',
     howTo: 'Guide',
     settings: 'Paramètres',
