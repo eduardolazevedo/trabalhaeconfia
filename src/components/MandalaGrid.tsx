@@ -162,7 +162,7 @@ export default function MandalaGrid() {
             <div key={`da-${objectiveIndex}-${actionIdx}`}>
               {renderCell(
                 action?.text || '',
-                { type: 'daily', objectiveIndex, actionIndex: actionIdx },
+                { type: 'daily', objectiveIndex, actionIndex: actionIdx, location: 'outer' },
                 false
               )}
             </div>
