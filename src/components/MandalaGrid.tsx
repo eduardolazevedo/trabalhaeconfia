@@ -150,7 +150,7 @@ export default function MandalaGrid() {
               <div key={`yo-${objectiveIndex}`}>
                 {renderCell(
                   yearlyGoal,
-                  { type: 'yearly', objectiveIndex },
+                  { type: 'yearly', objectiveIndex, location: 'outer' },
                   true,
                   objectiveIndex
                 )}
