@@ -73,6 +73,8 @@ const fr: Translations = {
     invalidFile: 'Fichier de plan invalide',
   },
   themes: {
+    confia: 'Confia',
+    confiaDesc: 'Travaille dur, fais confiance aux résultats — inspiré de l\'Espírito Santo',
     zen: 'Zen',
     zenDesc: 'Minimalisme japonais, inspiration wabi-sabi',
     bold: 'Audacieux',

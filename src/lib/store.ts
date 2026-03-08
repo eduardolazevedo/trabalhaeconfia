@@ -1,6 +1,6 @@
 // Data model and localStorage persistence for Harada Method
 
-export type Theme = 'zen' | 'bold' | 'warm' | 'editorial';
+export type Theme = 'confia' | 'zen' | 'bold' | 'warm' | 'editorial';
 
 export interface DailyAction {
   id: string;
@@ -43,7 +43,7 @@ export function createEmptyPlan(): HaradaPlan {
     yearlyObjectives: Array(8).fill(''),
     dailyActions,
     completions: {},
-    theme: 'zen',
+    theme: 'confia',
     createdAt: new Date().toISOString(),
   };
 }
@@ -92,7 +92,7 @@ function isValidCompletions(completions: unknown): completions is Record<string,
   return true;
 }
 
-const VALID_THEMES: Theme[] = ['zen', 'bold', 'warm', 'editorial'];
+const VALID_THEMES: Theme[] = ['confia', 'zen', 'bold', 'warm', 'editorial'];
 
 export function importPlan(json: string): HaradaPlan | null {
   try {
@@ -113,7 +113,7 @@ export function importPlan(json: string): HaradaPlan | null {
         yearlyObjectives: data.yearlyObjectives,
         dailyActions: data.dailyActions,
         completions: data.completions || {},
-        theme: VALID_THEMES.includes(data.theme) ? data.theme : 'zen',
+        theme: VALID_THEMES.includes(data.theme) ? data.theme : 'confia',
         createdAt: typeof data.createdAt === 'string' ? data.createdAt.slice(0, 30) : new Date().toISOString(),
       };
     }

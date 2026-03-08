@@ -73,6 +73,8 @@ const ptBr: Translations = {
     invalidFile: 'Arquivo de plano inválido',
   },
   themes: {
+    confia: 'Confia',
+    confiaDesc: 'Trabalha e confia — inspirado no lema do Espírito Santo',
     zen: 'Zen',
     zenDesc: 'Minimalismo japonês, inspirado em wabi-sabi',
     bold: 'Ousado',

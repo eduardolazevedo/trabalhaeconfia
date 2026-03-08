@@ -85,6 +85,8 @@ const en: Translations = {
     invalidFile: 'Invalid plan file',
   },
   themes: {
+    confia: 'Confia',
+    confiaDesc: 'Work hard, trust the results — Espírito Santo inspired',
     zen: 'Zen',
     zenDesc: 'Japanese minimal, wabi-sabi inspired',
     bold: 'Bold',
