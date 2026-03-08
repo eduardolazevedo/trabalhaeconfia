@@ -51,6 +51,27 @@ export interface Translations {
     noHabitsDesc: string;
     objective: string;
     motivational: Record<string, string>;
+    levelNames: {
+      seed: string;
+      sprout: string;
+      tree: string;
+      forest: string;
+    };
+    levelUp: string;
+    allComplete: string;
+  };
+  onboarding: {
+    welcome: string;
+    welcomeSub: string;
+    dreamQuestion: string;
+    dreamPlaceholder: string;
+    dreamSuggestions: string[];
+    areasTitle: string;
+    areasSub: string;
+    areas: { id: string; emoji: string; name: string }[];
+    startButton: string;
+    skipButton: string;
+    step: string;
   };
   howTo: {
     title: string;

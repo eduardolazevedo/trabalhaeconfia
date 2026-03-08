@@ -1,9 +1,48 @@
-import { useState, useMemo } from 'react';
+import { useState, useMemo, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { usePlan } from '@/contexts/PlanContext';
 import { useLanguage } from '@/contexts/LanguageContext';
 import { getDateKey, getStreak, getTodayCompletionRate } from '@/lib/store';
-import { Check, Flame, Target, ChevronDown, ChevronUp } from 'lucide-react';
+import { Check, Flame, Target, ChevronDown, ChevronUp, Trophy } from 'lucide-react';
+
+function getLevel(streak: number): 'seed' | 'sprout' | 'tree' | 'forest' {
+  if (streak >= 30) return 'forest';
+  if (streak >= 14) return 'tree';
+  if (streak >= 3) return 'sprout';
+  return 'seed';
+}
+
+function ConfettiEffect() {
+  const particles = useMemo(() =>
+    Array.from({ length: 30 }, (_, i) => ({
+      id: i,
+      x: Math.random() * 100,
+      delay: Math.random() * 0.5,
+      color: ['hsl(var(--primary))', 'hsl(var(--accent))', 'hsl(var(--success))', 'hsl(var(--streak-color))'][Math.floor(Math.random() * 4)],
+      size: 6 + Math.random() * 6,
+    })), []
+  );
+
+  return (
+    <div className="fixed inset-0 pointer-events-none z-50 overflow-hidden">
+      {particles.map(p => (
+        <motion.div
+          key={p.id}
+          initial={{ y: -20, x: `${p.x}vw`, opacity: 1, rotate: 0 }}
+          animate={{ y: '110vh', opacity: 0, rotate: 360 + Math.random() * 360 }}
+          transition={{ duration: 2 + Math.random(), delay: p.delay, ease: 'easeIn' }}
+          style={{
+            position: 'absolute',
+            width: p.size,
+            height: p.size,
+            borderRadius: Math.random() > 0.5 ? '50%' : '2px',
+            backgroundColor: p.color,
+          }}
+        />
+      ))}
+    </div>
+  );
+}
 
 export default function DailyTracker() {
   const { plan, updatePlan } = usePlan();
@@ -13,6 +52,9 @@ export default function DailyTracker() {
   const streak = getStreak(plan);
   const completionRate = getTodayCompletionRate(plan);
   const [expandedObjective, setExpandedObjective] = useState<number | null>(null);
+  const [showConfetti, setShowConfetti] = useState(false);
+  const [showLevelUp, setShowLevelUp] = useState(false);
+  const [prevLevel, setPrevLevel] = useState(() => getLevel(streak));
 
   const filledActions = useMemo(
     () => plan.dailyActions.filter(a => a.text.trim() !== ''),
@@ -41,6 +83,28 @@ export default function DailyTracker() {
 
   const completedCount = filledActions.filter(a => completions[a.id]).length;
   const pct = Math.round(completionRate * 100);
+  const level = getLevel(streak);
+  const levelName = t.daily.levelNames[level];
+
+  // Check for 100% completion → confetti
+  useEffect(() => {
+    if (pct === 100 && filledActions.length > 0) {
+      setShowConfetti(true);
+      const timer = setTimeout(() => setShowConfetti(false), 3000);
+      return () => clearTimeout(timer);
+    }
+  }, [pct, filledActions.length]);
+
+  // Check for level up
+  useEffect(() => {
+    const currentLevel = getLevel(streak);
+    if (currentLevel !== prevLevel && streak > 0) {
+      setShowLevelUp(true);
+      setPrevLevel(currentLevel);
+      const timer = setTimeout(() => setShowLevelUp(false), 3000);
+      return () => clearTimeout(timer);
+    }
+  }, [streak, prevLevel]);
 
   const getMotivationalText = () => {
     if (pct === 0) return t.daily.motivational['0'];
@@ -65,6 +129,23 @@ export default function DailyTracker() {
 
   return (
     <div className="w-full max-w-2xl mx-auto px-4">
+      {showConfetti && <ConfettiEffect />}
+
+      {/* Level Up Toast */}
+      <AnimatePresence>
+        {showLevelUp && (
+          <motion.div
+            initial={{ opacity: 0, y: -40, scale: 0.9 }}
+            animate={{ opacity: 1, y: 0, scale: 1 }}
+            exit={{ opacity: 0, y: -20 }}
+            className="fixed top-4 left-1/2 -translate-x-1/2 z-50 bg-primary text-primary-foreground px-6 py-3 rounded-xl shadow-elevated flex items-center gap-2"
+          >
+            <Trophy className="w-5 h-5" />
+            <span className="font-bold text-sm">{t.daily.levelUp} {levelName}</span>
+          </motion.div>
+        )}
+      </AnimatePresence>
+
       {/* Stats Header */}
       <div className="mb-8">
         <h1 className="text-2xl md:text-3xl font-bold mb-4 text-center">{t.daily.title}</h1>
@@ -103,6 +184,18 @@ export default function DailyTracker() {
           </motion.div>
         </div>
 
+        {/* Level Badge */}
+        <motion.div
+          className="flex items-center justify-center gap-2 mb-3"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 0.15 }}
+        >
+          <span className="text-sm font-semibold bg-secondary px-3 py-1 rounded-full">
+            {levelName}
+          </span>
+        </motion.div>
+
         {/* Progress Bar */}
         <div className="relative h-3 bg-muted rounded-full overflow-hidden mb-2">
           <motion.div
@@ -115,6 +208,19 @@ export default function DailyTracker() {
         <p className="text-sm text-muted-foreground text-center italic">
           {getMotivationalText()}
         </p>
+
+        {/* All Complete Celebration */}
+        <AnimatePresence>
+          {pct === 100 && (
+            <motion.div
+              initial={{ opacity: 0, scale: 0.9 }}
+              animate={{ opacity: 1, scale: 1 }}
+              className="mt-4 p-4 bg-primary/10 border border-primary/20 rounded-xl text-center"
+            >
+              <p className="text-sm font-semibold text-primary">{t.daily.allComplete}</p>
+            </motion.div>
+          )}
+        </AnimatePresence>
       </div>
 
       {/* Actions grouped by objective */}
@@ -138,7 +244,11 @@ export default function DailyTracker() {
                 onClick={() => setExpandedObjective(isExpanded ? null : objIdx)}
               >
                 <div className="flex items-center gap-3 min-w-0">
-                  <div className="flex-shrink-0 w-8 h-8 rounded-full bg-primary/10 flex items-center justify-center text-xs font-bold text-primary">
+                  <div className={`flex-shrink-0 w-8 h-8 rounded-full flex items-center justify-center text-xs font-bold ${
+                    objCompleted === actions.length
+                      ? 'bg-success/20 text-success'
+                      : 'bg-primary/10 text-primary'
+                  }`}>
                     {objCompleted}/{actions.length}
                   </div>
                   <span className="font-medium text-sm truncate">{objName}</span>
