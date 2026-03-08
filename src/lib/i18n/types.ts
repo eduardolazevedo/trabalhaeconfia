@@ -86,6 +86,24 @@ export interface Translations {
     skipButton: string;
     step: string;
   };
+  wizard: {
+    introTitle: string;
+    introDesc: string;
+    introTip: string;
+    startBtn: string;
+    skipBtn: string;
+    goalLabel: string;
+    goalPlaceholder: string;
+    habitsLabel: string;
+    habitPlaceholder: string;
+    moreHabitsNote: string;
+    backBtn: string;
+    nextBtn: string;
+    finishBtn: string;
+    planReady: string;
+    planReadyDesc: string;
+    metaOf: string;
+  };
   howTo: {
     title: string;
     subtitle: string;
