@@ -44,7 +44,7 @@ const es: Translations = {
   },
   howTo: {
     title: 'Cómo Funciona',
-    subtitle: 'El Método Harada — usado por Shohei Ohtani para convertirse en el mejor beisbolista de la historia.',
+    subtitle: 'El Método Harada — creado por Takashi Harada para personas comunes. Trabaja duro, confía en los resultados.',
     steps: [
       { title: '1. Define tu Gran Sueño', description: 'Haz clic en la celda central de la cuadrícula — es tu objetivo de vida a largo plazo. Piensa en grande: "Ser la mejor versión de mí mismo" o "Construir un negocio próspero."' },
       { title: '2. Define 8 Objetivos Anuales', description: 'Las 8 celdas alrededor de tu sueño representan objetivos anuales. Son las áreas clave que, si se logran este año, te acercarán a tu sueño.' },
@@ -54,8 +54,17 @@ const es: Translations = {
     diagramDream: '🎯 Sueño',
     diagramGoal: 'Meta',
     diagramCaption: 'Centro = Tu Sueño → 8 Metas Anuales → 64 Hábitos Diarios',
-    ohtaniQuote: '"De adolescente en Japón, Shohei Ohtani aprendió a descomponer un objetivo ambicioso en comportamientos pequeños y medibles — desde rutinas de fuerza hasta hábitos mentales y contribuciones comunitarias."',
+    ohtaniQuote: '"De adolescente en Japón, Shohei Ohtani aprendió a descomponer un objetivo ambicioso en comportamientos pequeños y medibles — desde rutinas de fuerza hasta hábitos mentales y contribuciones comunitarias como recoger basura y saludar a todos."',
     ohtaniSource: '— Estudio de Caso de Harvard Business School',
+    successStories: [
+      { title: '🏫 Escuela Matsumushi — 13 Medallas de Oro', description: 'Antes de Ohtani, Takashi Harada asumió la peor escuela de Osaka en deportes. Usando la Ventana Abierta 64, llevó al equipo de atletismo al #1 de Japón durante 6 años consecutivos. 12 alumnos ganaron 13 medallas de oro nacionales.' },
+      { title: '🏅 Pamela Dukes — Atleta Olímpica', description: 'Ex-atleta olímpica americana y ejecutiva de Toyota Connected. Aplicó el método a su carrera corporativa y para mantener la mentalidad de excelencia del deporte.' },
+      { title: '🏭 Líderes de Toyota — Autosuficiencia', description: 'Los gestores de Toyota usan la Ventana Abierta 64 para equilibrar habilidades técnicas con "carácter" y "contribución social" — pilares centrales del Método Harada.' },
+      { title: '📖 Norman Bodek — "El Padre de la Productividad"', description: 'El hombre que trajo el sistema Toyota a EE.UU. adoptó el método y lo llamó "el mejor sistema de gestión del mundo". Mentoreó a cientos de CEOs antes de fallecer en 2020.' },
+      { title: '📱 Sahil Bloom e Influenciadores Actuales', description: 'El inversor y creador de contenido Sahil Bloom popularizó la cuadrícula para millones como "Ingeniería del Destino". Sandeep Jethwani la usa para planificación financiera.' },
+    ],
+    methodNoteTitle: '💡 Mandala Chart vs. Método Harada',
+    methodNote: 'El Mandala Chart (creado por Hiroshi Matsumura en los años 70) se usa para lluvias de ideas genéricas. Lo que hace especial al Método Harada es la exigencia de que los pilares incluyan Salud Mental, Salud Física y Rutinas de Servicio — como "recoger basura" y "saludar a las personas" — que Ohtani siguió rigurosamente.',
   },
   settings: {
     title: 'Ajustes',

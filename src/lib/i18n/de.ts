@@ -44,7 +44,7 @@ const de: Translations = {
   },
   howTo: {
     title: 'So funktioniert es',
-    subtitle: 'Die Harada-Methode — verwendet von Shohei Ohtani, um der größte Baseballspieler der Geschichte zu werden.',
+    subtitle: 'Die Harada-Methode — von Takashi Harada für gewöhnliche Menschen entwickelt. Arbeite hart, vertraue auf die Ergebnisse.',
     steps: [
       { title: '1. Setze deinen großen Traum', description: 'Klicke auf die mittlere Zelle des Rasters — das ist dein langfristiges Lebensziel. Denke groß: "Die beste Version meiner selbst werden" oder "Ein florierendes Unternehmen aufbauen."' },
       { title: '2. Definiere 8 Jahresziele', description: 'Die 8 Zellen um deinen Traum herum stellen Jahresziele dar. Das sind die Schlüsselbereiche, die dich deinem Traum näherbringen.' },
@@ -54,8 +54,17 @@ const de: Translations = {
     diagramDream: '🎯 Traum',
     diagramGoal: 'Ziel',
     diagramCaption: 'Mitte = Dein Traum → 8 Jahresziele → 64 tägliche Gewohnheiten',
-    ohtaniQuote: '"Als Teenager in Japan lernte Shohei Ohtani, ein ehrgeiziges Ziel in kleine, messbare Verhaltensweisen aufzubrechen — von Kraftroutinen über mentale Gewohnheiten bis hin zu Gemeinschaftsbeiträgen."',
+    ohtaniQuote: '"Als Teenager in Japan lernte Shohei Ohtani, ein ehrgeiziges Ziel in kleine, messbare Verhaltensweisen aufzubrechen — von Kraftroutinen über mentale Gewohnheiten bis hin zu Gemeinschaftsbeiträgen wie Müll aufsammeln und jeden herzlich begrüßen."',
     ohtaniSource: '— Harvard Business School Fallstudie',
+    successStories: [
+      { title: '🏫 Matsumushi-Schule — 13 Goldmedaillen', description: 'Vor Ohtani übernahm Takashi Harada die schlechteste Schule Osakas im Sport. Mit dem Offenes Fenster 64 führte er das Leichtathletikteam 6 Jahre in Folge zur #1 in Japan. 12 Schüler gewannen 13 nationale Goldmedaillen.' },
+      { title: '🏅 Pamela Dukes — Olympia-Athletin', description: 'Ehemalige amerikanische Olympia-Athletin und Toyota Connected-Führungskraft. Sie wandte die Methode auf ihre Unternehmenskarriere und die sportliche Exzellenz-Mentalität an.' },
+      { title: '🏭 Toyota-Führungskräfte — Eigenständigkeit', description: 'Toyota-Manager nutzen das Offenes Fenster 64, um technische Fähigkeiten mit "Charakter" und "sozialem Beitrag" auszubalancieren — zentrale Säulen der Harada-Methode.' },
+      { title: '📖 Norman Bodek — "Der Pate des Lean"', description: 'Der Mann, der Toyotas System in die USA brachte, übernahm die Methode persönlich und nannte sie "das beste Managementsystem der Welt". Er mentorte Hunderte von CEOs vor seinem Tod 2020.' },
+      { title: '📱 Sahil Bloom & moderne Influencer', description: 'Investor und Content-Creator Sahil Bloom popularisierte das Raster für Millionen Follower als "Destiny Engineering". Sandeep Jethwani nutzt es für Finanzplanung und Vermögensaufbau.' },
+    ],
+    methodNoteTitle: '💡 Mandala Chart vs. Harada-Methode',
+    methodNote: 'Das Mandala Chart (von Hiroshi Matsumura in den 1970ern erstellt) wird für generisches Brainstorming verwendet. Was die Harada-Methode besonders macht, ist die Anforderung, dass die Säulen Mentale Gesundheit, Körperliche Gesundheit und Dienst-Routinen umfassen — wie "Müll aufsammeln" und "Menschen begrüßen" — die Ohtani rigoros befolgte.',
   },
   settings: {
     title: 'Einstellungen',
