@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { usePlan } from '@/contexts/PlanContext';
+import { useLanguage } from '@/contexts/LanguageContext';
 import { getActionsForObjective } from '@/lib/store';
 import { ArrowRight, ArrowLeft, Check, Sparkles, X } from 'lucide-react';
 import { toast } from '@/hooks/use-toast';
@@ -24,11 +25,10 @@ interface WizardProps {
 
 export default function PlanWizard({ onComplete }: WizardProps) {
   const { plan, updatePlan } = usePlan();
-  // Steps: 0 = intro, 1-8 = each objective area, 9 = done
+  const { t } = useLanguage();
   const [step, setStep] = useState(0);
   const [editValues, setEditValues] = useState<Record<string, string>>({});
 
-  // Find which objectives are already filled from onboarding
   const filledObjectives = plan.yearlyObjectives.filter(o => o.trim()).length;
   const totalSteps = Math.max(filledObjectives, 1);
 
@@ -61,7 +61,7 @@ export default function PlanWizard({ onComplete }: WizardProps) {
   const goNext = () => {
     saveCurrentStep();
     if (step >= totalSteps) {
-      toast({ title: '🎉 Plano configurado!', description: 'Agora é só executar, um dia de cada vez.' });
+      toast({ title: t.wizard.planReady, description: t.wizard.planReadyDesc });
       onComplete();
     } else {
       setStep(s => s + 1);
@@ -78,36 +78,40 @@ export default function PlanWizard({ onComplete }: WizardProps) {
     onComplete();
   };
 
-  const renderIntro = () => (
-    <motion.div
-      key="intro"
-      initial={{ opacity: 0, y: 20 }}
-      animate={{ opacity: 1, y: 0 }}
-      exit={{ opacity: 0, y: -20 }}
-      className="text-center"
-    >
-      <div className="w-16 h-16 mx-auto mb-4 rounded-full bg-primary/10 flex items-center justify-center">
-        <Sparkles className="w-8 h-8 text-primary" />
-      </div>
-      <h2 className="text-xl font-bold mb-2">Vamos completar seu plano! 🚀</h2>
-      <p className="text-sm text-muted-foreground mb-6 leading-relaxed">
-        Seu plano já tem {filledObjectives} meta{filledObjectives !== 1 ? 's' : ''} preenchida{filledObjectives !== 1 ? 's' : ''} do onboarding.
-        Vamos revisar cada uma e adicionar os hábitos diários que vão te levar até lá.
-      </p>
-      <p className="text-xs text-muted-foreground mb-6">
-        💡 Não se preocupe em preencher tudo agora. Você pode editar a qualquer momento.
-      </p>
-      <button
-        onClick={goNext}
-        className="w-full py-3 bg-primary text-primary-foreground rounded-lg font-semibold text-sm hover:opacity-90 transition-opacity flex items-center justify-center gap-2"
+  const renderIntro = () => {
+    const [singular, plural] = t.wizard.introDesc.split('|');
+    const label = filledObjectives !== 1 ? plural : singular;
+
+    return (
+      <motion.div
+        key="intro"
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        exit={{ opacity: 0, y: -20 }}
+        className="text-center"
       >
-        Começar <ArrowRight className="w-4 h-4" />
-      </button>
-      <button onClick={skip} className="mt-3 text-sm text-muted-foreground hover:text-foreground transition-colors">
-        Pular e preencher depois
-      </button>
-    </motion.div>
-  );
+        <div className="w-16 h-16 mx-auto mb-4 rounded-full bg-primary/10 flex items-center justify-center">
+          <Sparkles className="w-8 h-8 text-primary" />
+        </div>
+        <h2 className="text-xl font-bold mb-2">{t.wizard.introTitle}</h2>
+        <p className="text-sm text-muted-foreground mb-6 leading-relaxed">
+          {filledObjectives} {t.mandala.goalLabel.toLowerCase()}{filledObjectives !== 1 ? 's' : ''} {label}.
+        </p>
+        <p className="text-xs text-muted-foreground mb-6">
+          {t.wizard.introTip}
+        </p>
+        <button
+          onClick={goNext}
+          className="w-full py-3 bg-primary text-primary-foreground rounded-lg font-semibold text-sm hover:opacity-90 transition-opacity flex items-center justify-center gap-2"
+        >
+          {t.wizard.startBtn} <ArrowRight className="w-4 h-4" />
+        </button>
+        <button onClick={skip} className="mt-3 text-sm text-muted-foreground hover:text-foreground transition-colors">
+          {t.wizard.skipBtn}
+        </button>
+      </motion.div>
+    );
+  };
 
   const renderObjectiveStep = (objIdx: number) => {
     const objective = getVal(`obj-${objIdx}`, plan.yearlyObjectives[objIdx]);
@@ -122,7 +126,7 @@ export default function PlanWizard({ onComplete }: WizardProps) {
       >
         <div className="flex items-center justify-between mb-4">
           <p className="text-xs text-muted-foreground">
-            Meta {objIdx + 1} de {totalSteps}
+            {t.mandala.goalLabel} {objIdx + 1} {t.wizard.metaOf} {totalSteps}
           </p>
           <button onClick={skip} className="text-muted-foreground hover:text-foreground">
             <X className="w-4 h-4" />
@@ -142,16 +146,16 @@ export default function PlanWizard({ onComplete }: WizardProps) {
         </div>
 
         {/* Objective */}
-        <label className="text-xs font-medium text-muted-foreground mb-1 block">⭐ Meta Anual</label>
+        <label className="text-xs font-medium text-muted-foreground mb-1 block">{t.wizard.goalLabel}</label>
         <input
           className="w-full bg-card border border-border rounded-lg p-3 text-sm mb-4 focus:outline-none focus:ring-2 focus:ring-primary/50"
           value={objective}
           onChange={e => setVal(`obj-${objIdx}`, e.target.value)}
-          placeholder="Ex: Melhorar minha saúde física"
+          placeholder={t.wizard.goalPlaceholder}
         />
 
         {/* Actions */}
-        <label className="text-xs font-medium text-muted-foreground mb-2 block">📋 Hábitos diários para essa meta</label>
+        <label className="text-xs font-medium text-muted-foreground mb-2 block">{t.wizard.habitsLabel}</label>
         <div className="space-y-2 mb-6">
           {actions.slice(0, 4).map((action, i) => (
             <div key={action.id} className="flex items-center gap-2">
@@ -162,12 +166,12 @@ export default function PlanWizard({ onComplete }: WizardProps) {
                 className="flex-1 bg-card border border-border rounded-md px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-primary/50"
                 value={getVal(`act-${objIdx}-${action.positionIndex}`, action.text)}
                 onChange={e => setVal(`act-${objIdx}-${action.positionIndex}`, e.target.value)}
-                placeholder="Ex: Caminhar 30 min por dia"
+                placeholder={t.wizard.habitPlaceholder}
               />
             </div>
           ))}
           <p className="text-[10px] text-muted-foreground pl-7">
-            +4 hábitos extras podem ser adicionados depois na grade completa
+            {t.wizard.moreHabitsNote}
           </p>
         </div>
 
@@ -177,16 +181,16 @@ export default function PlanWizard({ onComplete }: WizardProps) {
             onClick={goBack}
             className="flex-1 py-2.5 border border-border rounded-lg text-sm hover:bg-secondary transition-colors flex items-center justify-center gap-1"
           >
-            <ArrowLeft className="w-4 h-4" /> Voltar
+            <ArrowLeft className="w-4 h-4" /> {t.wizard.backBtn}
           </button>
           <button
             onClick={goNext}
             className="flex-1 py-2.5 bg-primary text-primary-foreground rounded-lg font-semibold text-sm hover:opacity-90 transition-opacity flex items-center justify-center gap-1"
           >
             {step >= totalSteps ? (
-              <><Check className="w-4 h-4" /> Concluir</>
+              <><Check className="w-4 h-4" /> {t.wizard.finishBtn}</>
             ) : (
-              <>Próxima <ArrowRight className="w-4 h-4" /></>
+              <>{t.wizard.nextBtn} <ArrowRight className="w-4 h-4" /></>
             )}
           </button>
         </div>
